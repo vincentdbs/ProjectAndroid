@@ -1,8 +1,10 @@
-package com.android.projectandroid;
+package com.android.projectandroid.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.android.projectandroid.R;
 
 public class MainActivity extends AppCompatActivity {
 
