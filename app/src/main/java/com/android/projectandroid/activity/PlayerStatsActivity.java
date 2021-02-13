@@ -24,7 +24,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
         initFields();
         TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvNumber};
 
-        new AsyncTaskPlayerId("Lebron", "James", textViews).execute("https://www.balldontlie.io/api/v1/players?search=lebron");
+        new AsyncTaskPlayerId("Giánnis", "Antetokoúnmpo", textViews).execute("https://www.balldontlie.io/api/v1/players?search=antetokounmpo");
 
     }
 
