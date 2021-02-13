@@ -29,6 +29,7 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
         this.lastName = lastName.toLowerCase();
     }
 
+    //todo delete
     public AsyncTaskPlayerId(String firstName, String lastName){
         this.textViews = null;
         this.firstName = firstName.toLowerCase();
@@ -70,7 +71,11 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
             JSONArray players = jsonObject.getJSONArray("data");
             //Get the player index by searching by first and last name
             int jsonObjectIndex = getGoodPlayer(players);
-            if(jsonObjectIndex != -1)  Log.i(LOG_TAG, players.get(jsonObjectIndex).toString());
+            if(jsonObjectIndex != -1)  {
+                JSONObject player = players.getJSONObject(jsonObjectIndex);
+                String team = player.getJSONObject("team").getString("full_name");
+                new AsyncTaskPlayerStats(textViews, firstName, lastName, team).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();

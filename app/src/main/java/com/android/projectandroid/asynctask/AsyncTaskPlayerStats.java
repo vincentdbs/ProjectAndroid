@@ -32,7 +32,6 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
 
     @Override
     protected JSONObject doInBackground(String... strings) {
-        //https://www.balldontlie.io/api/v1/season_averages?player_ids[]=237
         URL url;
         try {
             //Request the api to get the player stats
@@ -42,6 +41,8 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
             try {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 String s = utils.readStream(in);
+
+                Log.i(LOG_TAG, s);
 
                 //Get the authenticated value
                 return new JSONObject(s);
@@ -68,8 +69,8 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
             textViews[1].setText(lastName);
             textViews[2].setText(playerStat.getString("pts"));
             textViews[3].setText(playerStat.getString("ast"));
-            textViews[4].setText(playerStat.getString("oreb"));
-            textViews[5].setText(playerStat.getString("dreb"));
+            textViews[4].setText(playerStat.getString("dreb"));
+            textViews[5].setText(playerStat.getString("oreb"));
             textViews[6].setText(playerStat.getString("blk"));
             textViews[7].setText(playerStat.getString("stl"));
             textViews[8].setText(team);

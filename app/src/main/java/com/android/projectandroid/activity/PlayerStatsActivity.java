@@ -11,17 +11,19 @@ import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
 
 public class PlayerStatsActivity extends AppCompatActivity {
     private TextView tvFirstName, tvLastName, tvTeam, tvNumber, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks;
+
     private SearchView svSearchPlayer;
     private String playerToSearch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_stats);
         initFields();
+        TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvNumber};
 
-
-        new AsyncTaskPlayerId("Lebron", "James", ).execute("https://www.balldontlie.io/api/v1/players?search=lebron");
+        new AsyncTaskPlayerId("Lebron", "James", textViews).execute("https://www.balldontlie.io/api/v1/players?search=lebron");
 
     }
 
