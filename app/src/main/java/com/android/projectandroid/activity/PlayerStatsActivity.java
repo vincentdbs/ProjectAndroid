@@ -38,6 +38,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "You should entrer a last name",
                             Toast.LENGTH_LONG).show();
                 }else{
+                    svSearchPlayer.setIconified(true);
                     Log.i(LOG_TAG, splited[0] + " " + splited[1]);
                     new AsyncTaskPlayerId(splited[0].toLowerCase(), splited[1].toLowerCase(), textViews)
                             .execute("https://www.balldontlie.io/api/v1/players?per_page=100&search=" + splited[1].toLowerCase());

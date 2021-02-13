@@ -26,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:queryHint="First name followed by last name"/>
     </LinearLayout>
 
     <LinearLayout
@@ -60,7 +61,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakesbold"
-                   android:text="Tony"
+                   android:text="..."
                    android:textSize="32sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerFirstName"/>
@@ -69,7 +70,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakesbold"
-                   android:text="Parker"
+                   android:text="..."
                    android:textSize="32sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerName" />
@@ -78,7 +79,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakes"
-                   android:text="San Antonio"
+                   android:text="..."
                    android:textSize="24sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerTeam" />
@@ -87,7 +88,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakes"
-                   android:text="G"
+                   android:text="..."
                    android:textSize="24sp"
                    android:textColor="@color/black"
 
