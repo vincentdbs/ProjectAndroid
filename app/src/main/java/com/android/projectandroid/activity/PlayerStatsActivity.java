@@ -16,7 +16,7 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 public class PlayerStatsActivity extends AppCompatActivity {
     //todo remplacer le numéro du joueur par le logo de l'équipe
     //todo clear the fields if no user found
-    private TextView tvFirstName, tvLastName, tvTeam, tvNumber, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
+    private TextView tvFirstName, tvLastName, tvTeam, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
 
     private SearchView svSearchPlayer;
     private String playerToSearch;
@@ -27,7 +27,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_stats);
         initFields();
-        TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvNumber, tvPosition};
+        TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvPosition};
 
 
         svSearchPlayer.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -65,7 +65,6 @@ public class PlayerStatsActivity extends AppCompatActivity {
         tvBlocks = findViewById(R.id.tv_blocks);
         tvSteals = findViewById(R.id.tv_steals);
         tvTeam = findViewById(R.id.tv_playerTeam);
-        tvNumber = findViewById(R.id.tv_playerNumber);
         tvPosition = findViewById(R.id.tv_playerPost);
     }
 

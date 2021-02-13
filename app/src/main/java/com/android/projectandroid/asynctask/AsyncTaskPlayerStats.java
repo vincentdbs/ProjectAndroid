@@ -75,8 +75,7 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
             textViews[6].setText(playerStat.getString("blk"));
             textViews[7].setText(playerStat.getString("stl"));
             textViews[8].setText(team);
-            textViews[9].setText("9");
-            textViews[10].setText(position);
+            textViews[9].setText(position);
 
         } catch (JSONException e) {
             e.printStackTrace();
