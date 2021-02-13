@@ -65,8 +65,8 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
             JSONArray data = jsonObject.getJSONArray("data");
             JSONObject playerStat = data.getJSONObject(0);
 
-            textViews[0].setText(firstName);
-            textViews[1].setText(lastName);
+            textViews[0].setText(utils.capitalize(firstName));
+            textViews[1].setText(utils.capitalize(lastName));
             textViews[2].setText(playerStat.getString("pts"));
             textViews[3].setText(playerStat.getString("ast"));
             textViews[4].setText(playerStat.getString("dreb"));

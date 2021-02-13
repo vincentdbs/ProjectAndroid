@@ -10,6 +10,7 @@ import com.android.projectandroid.R;
 import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
 
 public class PlayerStatsActivity extends AppCompatActivity {
+    //todo le poste n'est pas récuperer et changé
     private TextView tvFirstName, tvLastName, tvTeam, tvNumber, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks;
 
     private SearchView svSearchPlayer;
