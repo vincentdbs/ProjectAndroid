@@ -11,7 +11,7 @@ import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
 
 public class PlayerStatsActivity extends AppCompatActivity {
     //todo le poste n'est pas récuperer et changé
-    private TextView tvFirstName, tvLastName, tvTeam, tvNumber, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks;
+    private TextView tvFirstName, tvLastName, tvTeam, tvNumber, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
 
     private SearchView svSearchPlayer;
     private String playerToSearch;
@@ -22,9 +22,9 @@ public class PlayerStatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_stats);
         initFields();
-        TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvNumber};
+        TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvNumber, tvPosition};
 
-        new AsyncTaskPlayerId("Giánnis", "Antetokoúnmpo", textViews).execute("https://www.balldontlie.io/api/v1/players?search=antetokounmpo");
+        new AsyncTaskPlayerId("Giannis", "Antetokounmpo", textViews).execute("https://www.balldontlie.io/api/v1/players?search=antetokounmpo");
 
     }
 
@@ -40,6 +40,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
         tvSteals = findViewById(R.id.tv_steals);
         tvTeam = findViewById(R.id.tv_playerTeam);
         tvNumber = findViewById(R.id.tv_playerNumber);
+        tvPosition = findViewById(R.id.tv_playerPost);
     }
 
 }
