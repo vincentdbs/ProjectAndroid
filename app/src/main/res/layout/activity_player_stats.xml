@@ -54,14 +54,14 @@
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintStart_toStartOf="parent"
                app:layout_constraintTop_toTopOf="parent"
-               android:layout_marginLeft="32dp">
+               android:layout_marginStart="32dp">
 
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakesbold"
                    android:text="Tony"
-                   android:textSize="32dp"
+                   android:textSize="32sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerFirstName"/>
 
@@ -70,7 +70,7 @@
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakesbold"
                    android:text="Parker"
-                   android:textSize="32dp"
+                   android:textSize="32sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerName" />
 
@@ -79,7 +79,7 @@
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakes"
                    android:text="San Antonio"
-                   android:textSize="24dp"
+                   android:textSize="24sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerTeam" />
 
@@ -88,7 +88,7 @@
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakes"
                    android:text="G"
-                   android:textSize="24dp"
+                   android:textSize="24sp"
                    android:textColor="@color/black"
 
                    android:id="@+id/tv_playerPost" />
@@ -103,7 +103,7 @@
                 android:fontFamily="@font/superstar"
                 android:text="9"
                 android:textColor="@color/black"
-                android:textSize="104dp"
+                android:textSize="104sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -142,7 +142,7 @@
                         android:id="@+id/tv_points"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -152,7 +152,7 @@
                         android:text="Points"
                         android:id="@+id/tv_points_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -171,7 +171,7 @@
                         android:id="@+id/tv_assists"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -181,7 +181,7 @@
                         android:text="Assists"
                         android:id="@+id/tv_assists_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -208,7 +208,7 @@
                         android:id="@+id/tv_reboundO"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -218,7 +218,7 @@
                         android:text="Rebounds O."
                         android:id="@+id/tv_reboundO_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -237,7 +237,7 @@
                         android:id="@+id/tv_reboundD"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -247,7 +247,7 @@
                         android:text="Rebounds D."
                         android:id="@+id/tv_reboundD_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -273,7 +273,7 @@
                         android:id="@+id/tv_blocks"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -283,7 +283,7 @@
                         android:text="Blocks"
                         android:id="@+id/tv_blocks_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -302,7 +302,7 @@
                         android:id="@+id/tv_steals"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -312,7 +312,7 @@
                         android:text="Steals"
                         android:id="@+id/tv_steals_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
