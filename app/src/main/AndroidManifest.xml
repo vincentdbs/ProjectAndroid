@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectAndroid">
 
-        <activity android:name=".PlayerStatsActivity" />
+        <activity android:name=".activity.PlayerStatsActivity" />
         <activity android:name=".activity.MainActivity">
 
             <intent-filter>

@@ -1,8 +1,10 @@
-package com.android.projectandroid;
+package com.android.projectandroid.activity;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.projectandroid.R;
 
 public class PlayerStatsActivity extends AppCompatActivity {
 
