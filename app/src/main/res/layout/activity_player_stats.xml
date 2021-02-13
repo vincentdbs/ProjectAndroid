@@ -63,7 +63,7 @@
                 android:id="@+id/row1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="64dp"
+                android:layout_marginBottom="48dp"
                 >
 
                 <LinearLayout
@@ -78,8 +78,10 @@
                         android:text="24"
                         android:id="@+id/tv_points"
                         android:gravity="center"
+                        android:layout_marginBottom="12dp"
                         android:textSize="64dp"
-                        android:fontFamily="@font/superstar"/>
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -87,8 +89,9 @@
                         android:text="Points"
                         android:id="@+id/tv_points_des"
                         android:gravity="center"
-                        android:textSize="32dp"
-                        android:fontFamily="@font/superstar"/>
+                        android:textSize="24dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
@@ -103,14 +106,21 @@
                         android:layout_height="match_parent"
                         android:text="7"
                         android:id="@+id/tv_assists"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Assists"
                         android:id="@+id/tv_assists_des"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
@@ -119,7 +129,7 @@
                 android:id="@+id/row2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="64dp"
+                android:layout_marginBottom="48dp"
                 >
 
                 <LinearLayout
@@ -133,14 +143,21 @@
                         android:layout_height="match_parent"
                         android:text="12"
                         android:id="@+id/tv_reboundO"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Rebounds O."
                         android:id="@+id/tv_reboundO_des"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
@@ -155,14 +172,21 @@
                         android:layout_height="match_parent"
                         android:text="8"
                         android:id="@+id/tv_reboundD"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Rebound D."
+                        android:text="Rebounds D."
                         android:id="@+id/tv_reboundD_des"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
@@ -184,14 +208,21 @@
                         android:layout_height="match_parent"
                         android:text="3"
                         android:id="@+id/tv_blocks"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Blocks"
                         android:id="@+id/tv_blocks_des"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
@@ -206,14 +237,21 @@
                         android:layout_height="match_parent"
                         android:text="6"
                         android:id="@+id/tv_steals"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Steals"
                         android:id="@+id/tv_steals_des"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
 
                 </LinearLayout>
 
