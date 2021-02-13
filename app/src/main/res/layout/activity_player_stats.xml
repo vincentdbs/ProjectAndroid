@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:background="@color/white"
         android:id="@+id/layoutSearchBarPlayer"
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -111,8 +112,8 @@
 <!--                app:layout_constraintVertical_bias="0.28" />-->
 
                 <ImageView
-                    android:src="@drawable/logo_jazz"
-                    android:layout_width="104dp"
+                    android:src="@drawable/logo_nba"
+                    android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginEnd="32dp"
