@@ -10,7 +10,7 @@ import com.android.projectandroid.R;
 import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
 
 public class PlayerStatsActivity extends AppCompatActivity {
-    //todo le poste n'est pas récuperer et changé
+    //todo remplacer le numéro du joueur par le logo de l'équipe
     private TextView tvFirstName, tvLastName, tvTeam, tvNumber, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
 
     private SearchView svSearchPlayer;

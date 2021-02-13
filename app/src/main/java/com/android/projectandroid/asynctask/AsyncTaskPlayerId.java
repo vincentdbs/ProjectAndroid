@@ -74,7 +74,8 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
             if(jsonObjectIndex != -1)  {
                 JSONObject player = players.getJSONObject(jsonObjectIndex);
                 String team = player.getJSONObject("team").getString("full_name");
-                new AsyncTaskPlayerStats(textViews, firstName, lastName, team).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
+                String position = player.getString("position");
+                new AsyncTaskPlayerStats(textViews, firstName, lastName, team, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
             }
 
         } catch (JSONException e) {

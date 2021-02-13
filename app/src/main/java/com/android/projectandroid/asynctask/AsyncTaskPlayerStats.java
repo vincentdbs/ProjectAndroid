@@ -21,13 +21,14 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
     private TextView[] textViews;
-    private String firstName, lastName, team;
+    private String firstName, lastName, team, position;
 
-    public AsyncTaskPlayerStats(TextView[] textViews, String firstName, String lastName, String team) {
+    public AsyncTaskPlayerStats(TextView[] textViews, String firstName, String lastName, String team, String position) {
         this.textViews = textViews;
         this.firstName = firstName;
         this.lastName = lastName;
         this.team = team;
+        this.position = position;
     }
 
     @Override
@@ -75,6 +76,7 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
             textViews[7].setText(playerStat.getString("stl"));
             textViews[8].setText(team);
             textViews[9].setText("9");
+            textViews[10].setText(position);
 
         } catch (JSONException e) {
             e.printStackTrace();
