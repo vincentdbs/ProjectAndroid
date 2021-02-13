@@ -69,21 +69,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/fdfdslfkjmdsfs"
+                    android:id="@+id/layoutPoints"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkfjdfl"
+                        android:text="24"
+                        android:id="@+id/tv_points"
                         android:gravity="center"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkffdsjdfl"
+                        android:text="Points"
+                        android:id="@+id/tv_points_des"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -91,21 +91,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/fdfdslfkjmdsfs"
+                    android:id="@+id/layout"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkfjdfl"
+                        android:text="7"
+                        android:id="@+id/tv_assists"
                         android:gravity="center"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkffdsjdfl"
+                        android:text="Assists"
+                        android:id="@+id/tv_assists_des"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -121,21 +121,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/fdfdslfkjmdsfs"
+                    android:id="@+id/layoutReboundO"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkfjdfl"
+                        android:text="12"
+                        android:id="@+id/tv_reboundO"
                         android:gravity="center"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkffdsjdfl"
+                        android:text="Rebounds O."
+                        android:id="@+id/tv_reboundO_des"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -143,21 +143,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/fdfdslfkjmdsfs"
+                    android:id="@+id/layoutReboundD"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkfjdfl"
+                        android:text="8"
+                        android:id="@+id/tv_reboundD"
                         android:gravity="center"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkffdsjdfl"
+                        android:text="Rebound D."
+                        android:id="@+id/tv_reboundD_des"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -172,21 +172,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/fdfdslfkjmdsfs"
+                    android:id="@+id/layoutBlocks"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkfjdfl"
+                        android:text="3"
+                        android:id="@+id/tv_blocks"
                         android:gravity="center"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkffdsjdfl"
+                        android:text="Blocks"
+                        android:id="@+id/tv_blocks_des"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -194,21 +194,21 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/fdfdslfkjmdsfs"
+                    android:id="@+id/layoutSteals"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkfjdfl"
+                        android:text="6"
+                        android:id="@+id/tv_steals"
                         android:gravity="center"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="fdskljflkd"
-                        android:id="@+id/fdslkffdsjdfl"
+                        android:text="Steals"
+                        android:id="@+id/tv_steals_des"
                         android:gravity="center"/>
 
                 </LinearLayout>
