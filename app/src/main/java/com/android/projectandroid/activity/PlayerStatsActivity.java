@@ -2,6 +2,7 @@ package com.android.projectandroid.activity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,12 +13,13 @@ import com.android.projectandroid.R;
 import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
+import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class PlayerStatsActivity extends AppCompatActivity {
-    //todo remplacer le numéro du joueur par le logo de l'équipe
-    //todo clear the fields if no user found
+    // todo remplacer le numéro du joueur par le logo de l'équipe
+    // todo clear the fields if no user found
     private TextView tvFirstName, tvLastName, tvTeam, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
-
+    private ImageView ivTeam;
     private SearchView svSearchPlayer;
     private String playerToSearch;
 
@@ -29,6 +31,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
         initFields();
         TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvPosition};
 
+        ivTeam.setImageResource(MAP_LOGO_TEAM.get("b"));
 
         svSearchPlayer.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -55,6 +58,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
     }
 
     private void initFields(){
+        ivTeam = findViewById(R.id.logoTeam);
         svSearchPlayer = findViewById(R.id.svSearchPlayer);
         tvFirstName = findViewById(R.id.tv_playerFirstName);
         tvLastName = findViewById(R.id.tv_playerName);
