@@ -37,17 +37,74 @@
         app:layout_constraintTop_toBottomOf="@+id/layoutSearchBarPlayer"
         android:weightSum="3">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="right"
-            android:gravity="center"
             android:background="@color/white"
             android:id="@+id/layoutPlayerData"
             android:layout_weight="1"
             android:orientation="horizontal">
 
-        </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               android:layout_marginLeft="32dp">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Tony"
+                   android:textSize="32dp"
+                   android:textColor="@color/black"
+                   android:id="@+id/tv_playerFirstName"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Parker"
+                   android:textSize="32dp"
+                   android:textColor="@color/black"
+                   android:id="@+id/tv_playerName" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="San Antonio"
+                   android:textSize="32dp"
+                   android:textColor="@color/black"
+                   android:id="@+id/tv_playerTeam" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="G"
+                   android:textSize="32dp"
+                   android:textColor="@color/black"
+
+                   android:id="@+id/tv_playerPost" />
+
+           </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_playerNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:textColor="@color/black"
+                android:textSize="104dp"
+                android:fontFamily="@font/superstar"
+                android:layout_marginRight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TableLayout
             android:id="@+id/layoutStats"
