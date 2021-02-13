@@ -1,16 +1,21 @@
 package com.android.projectandroid.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.projectandroid.R;
 import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
 
+import static com.android.projectandroid.utlis.constants.LOG_TAG;
+
 public class PlayerStatsActivity extends AppCompatActivity {
     //todo remplacer le numéro du joueur par le logo de l'équipe
+    //todo clear the fields if no user found
     private TextView tvFirstName, tvLastName, tvTeam, tvNumber, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
 
     private SearchView svSearchPlayer;
@@ -24,7 +29,27 @@ public class PlayerStatsActivity extends AppCompatActivity {
         initFields();
         TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvNumber, tvPosition};
 
-        new AsyncTaskPlayerId("Giannis", "Antetokounmpo", textViews).execute("https://www.balldontlie.io/api/v1/players?search=antetokounmpo");
+
+        svSearchPlayer.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                String[] splited = s.split(" ");
+                if (splited.length == 1){
+                    Toast.makeText(getApplicationContext(), "You should entrer a last name",
+                            Toast.LENGTH_LONG).show();
+                }else{
+                    Log.i(LOG_TAG, splited[0] + " " + splited[1]);
+                    new AsyncTaskPlayerId(splited[0].toLowerCase(), splited[1].toLowerCase(), textViews)
+                            .execute("https://www.balldontlie.io/api/v1/players?per_page=100&search=" + splited[1].toLowerCase());
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
 
     }
 
