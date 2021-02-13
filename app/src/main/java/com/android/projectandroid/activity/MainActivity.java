@@ -18,6 +18,7 @@ import java.util.Calendar;
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class MainActivity extends AppCompatActivity {
+//    TODO faire une classe asynctask mére et heritahe pour celle construite par moi avec overide de la methode on postexecute
     private ImageView svgCalendar;
     private TextView tv_date;
 

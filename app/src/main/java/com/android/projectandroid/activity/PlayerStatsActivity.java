@@ -1,17 +1,13 @@
 package com.android.projectandroid.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.projectandroid.R;
-import com.android.projectandroid.asynctask.AsyncTaskMatch;
-import com.android.projectandroid.asynctask.AsyncTaskPlayerStats;
-
-import static com.android.projectandroid.utlis.constants.LOG_TAG;
+import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
 
 public class PlayerStatsActivity extends AppCompatActivity {
     private TextView tvFirstName, tvLastName, tvTeam, tvNumber, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks;
@@ -22,8 +18,10 @@ public class PlayerStatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_stats);
+        initFields();
 
-        new AsyncTaskPlayerStats("Lebron", "James").execute("https://www.balldontlie.io/api/v1/players?search=lebron");
+
+        new AsyncTaskPlayerId("Lebron", "James", ).execute("https://www.balldontlie.io/api/v1/players?search=lebron");
 
     }
 
