@@ -31,8 +31,6 @@ public class PlayerStatsActivity extends AppCompatActivity {
         initFields();
         TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvPosition};
 
-        ivTeam.setImageResource(MAP_LOGO_TEAM.get("b"));
-
         svSearchPlayer.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -43,7 +41,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
                 }else{
                     svSearchPlayer.setIconified(true);
                     Log.i(LOG_TAG, splited[0] + " " + splited[1]);
-                    new AsyncTaskPlayerId(splited[0].toLowerCase(), splited[1].toLowerCase(), textViews)
+                    new AsyncTaskPlayerId(splited[0].toLowerCase(), splited[1].toLowerCase(), ivTeam, textViews)
                             .execute("https://www.balldontlie.io/api/v1/players?per_page=100&search=" + splited[1].toLowerCase());
                 }
                 return false;

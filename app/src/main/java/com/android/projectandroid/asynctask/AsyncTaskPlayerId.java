@@ -2,6 +2,7 @@ package com.android.projectandroid.asynctask;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.projectandroid.utlis.utils;
@@ -22,11 +23,13 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
     private TextView[] textViews;
     private String firstName, lastName;
+    private ImageView ivTeam;
 
-    public AsyncTaskPlayerId(String firstName, String lastName, TextView... textViews){
+    public AsyncTaskPlayerId(String firstName, String lastName, ImageView ivTeam, TextView... textViews){
         this.textViews = textViews;
         this.firstName = firstName.toLowerCase();
         this.lastName = lastName.toLowerCase();
+        this.ivTeam = ivTeam;
     }
 
     //todo delete
@@ -74,8 +77,9 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
             if(jsonObjectIndex != -1)  {
                 JSONObject player = players.getJSONObject(jsonObjectIndex);
                 String team = player.getJSONObject("team").getString("full_name");
+                String teamAbrev = player.getJSONObject("team").getString("abbreviation");
                 String position = player.getString("position");
-                new AsyncTaskPlayerStats(textViews, firstName, lastName, team, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
+                new AsyncTaskPlayerStats(textViews, ivTeam, firstName, lastName, team, teamAbrev, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
             }
 
         } catch (JSONException e) {

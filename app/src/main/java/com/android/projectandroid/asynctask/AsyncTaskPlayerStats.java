@@ -1,7 +1,10 @@
 package com.android.projectandroid.asynctask;
 
+import android.app.ActionBar;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.projectandroid.utlis.utils;
@@ -18,17 +21,21 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
+import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
     private TextView[] textViews;
-    private String firstName, lastName, team, position;
+    private String firstName, lastName, team, position, teamAbrev;
+    private ImageView ivTeam;
 
-    public AsyncTaskPlayerStats(TextView[] textViews, String firstName, String lastName, String team, String position) {
+    public AsyncTaskPlayerStats(TextView[] textViews, ImageView ivTeam, String firstName, String lastName, String team, String teamAbrev, String position) {
         this.textViews = textViews;
         this.firstName = firstName;
         this.lastName = lastName;
         this.team = team;
         this.position = position;
+        this.teamAbrev = teamAbrev;
+        this.ivTeam = ivTeam;
     }
 
     @Override
@@ -76,6 +83,8 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
             textViews[7].setText(playerStat.getString("stl"));
             textViews[8].setText(team);
             textViews[9].setText(position);
+
+            ivTeam.setImageResource(MAP_LOGO_TEAM.get(teamAbrev));
 
         } catch (JSONException e) {
             e.printStackTrace();
