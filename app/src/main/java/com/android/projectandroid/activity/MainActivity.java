@@ -1,6 +1,7 @@
 package com.android.projectandroid.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -11,7 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.projectandroid.R;
+import com.android.projectandroid.adapter.SectionMatchAdapter;
 import com.android.projectandroid.asynctask.AsyncTaskMatch;
+import com.android.projectandroid.fragment.FragmentAllMatch;
+import com.android.projectandroid.fragment.FragmentFavoritesMatch;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.Calendar;
 
@@ -22,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     //todo change default date à cote du calendar
     private ImageView svgCalendar;
     private TextView tv_date;
+    private ViewPager vpMatch;
+
+    //https://codinginflow.com/tutorials/android/tab-layout-with-fragments
+    //https://medium.com/@royanimesh2211/swipeable-tab-layout-using-view-pager-and-fragment-in-android-ea62f839502b
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
         svgCalendar = findViewById(R.id.svgCalendar);
         tv_date = findViewById(R.id.date);
+        vpMatch = findViewById(R.id.viewPagerMatch);
+        setupViewPager(vpMatch);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.layoutFooter);
+        tabLayout.setupWithViewPager(vpMatch);
 
 
 
@@ -52,5 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 myCalendar.get(Calendar.YEAR),
                 myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH)).show());
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        SectionMatchAdapter adapter = new SectionMatchAdapter(getSupportFragmentManager());
+        adapter.addFragment(new FragmentAllMatch(), "fkjshfk");
+        adapter.addFragment(new FragmentFavoritesMatch(), "fkdjgh");
+        viewPager.setAdapter(adapter);
     }
 }
