@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.DatePickerDialog;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,10 +49,20 @@ public class MainActivity extends AppCompatActivity {
         setupViewPager(vpMatch);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.layoutFooter);
+//        Drawable a = tabLayout.getTabAt(0).getIcon();
+//        tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_star_border_32);
+//        tabLayout.getTabAt(0).getIcon().setVisible(true, true);
+//        Drawable b = tabLayout.getTabAt(0).getIcon();
+
         tabLayout.setupWithViewPager(vpMatch);
+        setupTabIcons(tabLayout);
+        addListenerOnClickCalendar();
 
+    }
 
-
+    private void setupTabIcons(TabLayout tabLayout) {
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_sports_basketball_32);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_star_border_32);
     }
 
     private void addListenerOnClickCalendar(){
@@ -75,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionMatchAdapter adapter = new SectionMatchAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentAllMatch());
-        adapter.addFragment(new FragmentFavoritesMatch());
+        adapter.addFragment(new FragmentAllMatch(), "one");
+        adapter.addFragment(new FragmentFavoritesMatch(), "two");
         viewPager.setAdapter(adapter);
     }
 }
