@@ -53,6 +53,7 @@
 
 
     <androidx.viewpager.widget.ViewPager
+        android:background="@color/grey"
         android:id="@+id/viewPagerMatch"
         android:layout_width="fill_parent"
         app:layout_constraintBottom_toTopOf="@+id/layoutFooter"
