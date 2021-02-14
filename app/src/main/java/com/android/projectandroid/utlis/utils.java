@@ -1,5 +1,7 @@
 package com.android.projectandroid.utlis;
 
+import android.widget.TextView;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +19,16 @@ public class utils {
             return total.toString();
         } catch (IOException e) {
             return "";
+        }
+    }
+
+    public static String capitalize(String str){
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
+
+    public static void clearTextViews(String strToSet, TextView... textViews){
+        for (TextView tv: textViews) {
+            tv.setText(strToSet);
         }
     }
 }

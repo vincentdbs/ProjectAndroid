@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:background="@color/white"
         android:id="@+id/layoutSearchBarPlayer"
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -22,10 +23,12 @@
             app:srcCompat="@drawable/ic_arrow_left_447" />
 
         <SearchView
+            android:id="@+id/svSearchPlayer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:queryHint="First name followed by last name"/>
     </LinearLayout>
 
     <LinearLayout
@@ -53,23 +56,23 @@
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintStart_toStartOf="parent"
                app:layout_constraintTop_toTopOf="parent"
-               android:layout_marginLeft="32dp">
+               android:layout_marginStart="32dp">
 
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:fontFamily="@font/ttlakes"
-                   android:text="Tony"
-                   android:textSize="32dp"
+                   android:fontFamily="@font/ttlakesbold"
+                   android:text="..."
+                   android:textSize="32sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerFirstName"/>
 
                <TextView
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:fontFamily="@font/ttlakes"
-                   android:text="Parker"
-                   android:textSize="32dp"
+                   android:fontFamily="@font/ttlakesbold"
+                   android:text="..."
+                   android:textSize="32sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerName" />
 
@@ -77,8 +80,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakes"
-                   android:text="San Antonio"
-                   android:textSize="32dp"
+                   android:text="..."
+                   android:textSize="24sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerTeam" />
 
@@ -86,27 +89,38 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakes"
-                   android:text="G"
-                   android:textSize="32dp"
+                   android:text="..."
+                   android:textSize="24sp"
                    android:textColor="@color/black"
 
                    android:id="@+id/tv_playerPost" />
 
            </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_playerNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9"
-                android:textColor="@color/black"
-                android:textSize="104dp"
-                android:fontFamily="@font/superstar"
-                android:layout_marginRight="48dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <TextView-->
+<!--                android:id="@+id/tv_playerNumber"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="32dp"-->
+<!--                android:fontFamily="@font/superstar"-->
+<!--                android:text="9"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="104sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.28" />-->
 
+                <ImageView
+                    android:id="@+id/logoTeam"
+                    android:src="@drawable/logo_nba"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.28" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -136,11 +150,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="24"
+                        android:text="..."
                         android:id="@+id/tv_points"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -150,7 +164,7 @@
                         android:text="Points"
                         android:id="@+id/tv_points_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -165,11 +179,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="7"
+                        android:text="..."
                         android:id="@+id/tv_assists"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -179,7 +193,7 @@
                         android:text="Assists"
                         android:id="@+id/tv_assists_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -202,11 +216,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="12"
+                        android:text="..."
                         android:id="@+id/tv_reboundO"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -216,7 +230,7 @@
                         android:text="Rebounds O."
                         android:id="@+id/tv_reboundO_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -231,11 +245,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="8"
+                        android:text="..."
                         android:id="@+id/tv_reboundD"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -245,7 +259,7 @@
                         android:text="Rebounds D."
                         android:id="@+id/tv_reboundD_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -267,11 +281,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="3"
+                        android:text="..."
                         android:id="@+id/tv_blocks"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -281,7 +295,7 @@
                         android:text="Blocks"
                         android:id="@+id/tv_blocks_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -296,11 +310,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="6"
+                        android:text="..."
                         android:id="@+id/tv_steals"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
-                        android:textSize="64dp"
+                        android:textSize="64sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
@@ -310,7 +324,7 @@
                         android:text="Steals"
                         android:id="@+id/tv_steals_des"
                         android:gravity="center"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         android:fontFamily="@font/superstar"
                         android:textColor="@color/white"/>
 
