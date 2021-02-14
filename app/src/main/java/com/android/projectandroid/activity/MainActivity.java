@@ -19,6 +19,7 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class MainActivity extends AppCompatActivity {
 //    TODO faire une classe asynctask mére et heritahe pour celle construite par moi avec overide de la methode on postexecute
+    //todo change default date à cote du calendar
     private ImageView svgCalendar;
     private TextView tv_date;
 
@@ -30,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
         svgCalendar = findViewById(R.id.svgCalendar);
         tv_date = findViewById(R.id.date);
 
+
+
+    }
+
+    private void addListenerOnClickCalendar(){
         final Calendar myCalendar = Calendar.getInstance();
 
         DatePickerDialog.OnDateSetListener date = (datePicker, year, month, day) -> {
@@ -38,14 +44,13 @@ public class MainActivity extends AppCompatActivity {
             myCalendar.set(Calendar.MONTH, month);
             myCalendar.set(Calendar.DAY_OF_MONTH, day);
             // Set the text view to the selected date
-            tv_date.setText(day + "-" + month + "-" + year);
+            tv_date.setText(day + "/" + month + "/" + year);
         };
 
         svgCalendar.setOnClickListener(view -> new DatePickerDialog(
-        MainActivity.this, date,
+                MainActivity.this, date,
                 myCalendar.get(Calendar.YEAR),
                 myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH)).show());
-
     }
 }
