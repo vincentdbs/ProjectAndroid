@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     //https://codinginflow.com/tutorials/android/tab-layout-with-fragments
     //https://medium.com/@royanimesh2211/swipeable-tab-layout-using-view-pager-and-fragment-in-android-ea62f839502b
-
+    //https://stackoverflow.com/questions/15932975/complex-items-in-a-listview/15933181
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
