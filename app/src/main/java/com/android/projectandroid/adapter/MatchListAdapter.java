@@ -22,6 +22,12 @@ public class MatchListAdapter extends BaseAdapter{
         this.matches = matches;
     }
 
+    public MatchListAdapter(Context context) {
+        this.context = context;
+        this.matches = new ArrayList<Match>();
+    }
+
+
     @Override
     public int getCount() {
         return matches.size();
@@ -62,5 +68,9 @@ public class MatchListAdapter extends BaseAdapter{
 
 
         return convertView;
+    }
+
+    public void add(Match match){
+        matches.add(match);
     }
 }
