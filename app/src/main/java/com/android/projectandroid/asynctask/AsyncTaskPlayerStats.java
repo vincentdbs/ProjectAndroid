@@ -1,11 +1,13 @@
 package com.android.projectandroid.asynctask;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.projectandroid.utlis.utils;
 
@@ -27,8 +29,9 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
     private TextView[] textViews;
     private String firstName, lastName, team, position, teamAbrev;
     private ImageView ivTeam;
+    private Context context;
 
-    public AsyncTaskPlayerStats(TextView[] textViews, ImageView ivTeam, String firstName, String lastName, String team, String teamAbrev, String position) {
+    public AsyncTaskPlayerStats(Context context, TextView[] textViews, ImageView ivTeam, String firstName, String lastName, String team, String teamAbrev, String position) {
         this.textViews = textViews;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,6 +39,7 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
         this.position = position;
         this.teamAbrev = teamAbrev;
         this.ivTeam = ivTeam;
+        this.context = context;
     }
 
     @Override
@@ -70,22 +74,25 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         try {
+            //Personal info of the player
             JSONArray data = jsonObject.getJSONArray("data");
-            JSONObject playerStat = data.getJSONObject(0);
-
             textViews[0].setText(utils.capitalize(firstName));
             textViews[1].setText(utils.capitalize(lastName));
-            textViews[2].setText(playerStat.getString("pts"));
-            textViews[3].setText(playerStat.getString("ast"));
-            textViews[4].setText(playerStat.getString("dreb"));
-            textViews[5].setText(playerStat.getString("oreb"));
-            textViews[6].setText(playerStat.getString("blk"));
-            textViews[7].setText(playerStat.getString("stl"));
             textViews[8].setText(team);
             textViews[9].setText(position);
-
             ivTeam.setImageResource(MAP_LOGO_TEAM.get(teamAbrev));
-
+            //Statistics of the player in the current season
+            if(data.length() != 0){
+                JSONObject playerStat = data.getJSONObject(0);
+                textViews[2].setText(playerStat.getString("pts"));
+                textViews[3].setText(playerStat.getString("ast"));
+                textViews[4].setText(playerStat.getString("dreb"));
+                textViews[5].setText(playerStat.getString("oreb"));
+                textViews[6].setText(playerStat.getString("blk"));
+                textViews[7].setText(playerStat.getString("stl"));
+            }else{
+                Toast.makeText(context, "This player did not played any match this season", Toast.LENGTH_LONG).show();
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

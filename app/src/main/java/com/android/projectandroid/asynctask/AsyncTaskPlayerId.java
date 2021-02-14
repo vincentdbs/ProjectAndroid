@@ -78,7 +78,7 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
                 String team = player.getJSONObject("team").getString("full_name");
                 String teamAbrev = player.getJSONObject("team").getString("abbreviation");
                 String position = player.getString("position");
-                new AsyncTaskPlayerStats(textViews, ivTeam, firstName, lastName, team, teamAbrev, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
+                new AsyncTaskPlayerStats(context, textViews, ivTeam, firstName, lastName, team, teamAbrev, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
             }else{
                 utils.clearTextViews("...", textViews);
                 ivTeam.setImageResource(R.drawable.logo_nba);
