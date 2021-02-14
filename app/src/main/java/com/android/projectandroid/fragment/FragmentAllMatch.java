@@ -28,11 +28,23 @@ public class FragmentAllMatch extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         ArrayList<Match> listOfMatches = new ArrayList<>();
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
+        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
 
         MatchListAdapter adapter = new MatchListAdapter(getContext(), listOfMatches);
 
