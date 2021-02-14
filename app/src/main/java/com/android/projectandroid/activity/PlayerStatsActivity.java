@@ -16,9 +16,9 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class PlayerStatsActivity extends AppCompatActivity {
-    // todo remplacer le numéro du joueur par le logo de l'équipe
     // todo clear the fields if no user found
     private TextView tvFirstName, tvLastName, tvTeam, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
+    private TextView[] textViews;
     private ImageView ivTeam;
     private SearchView svSearchPlayer;
     private String playerToSearch;
@@ -28,9 +28,31 @@ public class PlayerStatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_stats);
-        initFields();
-        TextView[] textViews = {tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals,tvTeam, tvPosition};
 
+        initFields();
+        addQueryListener();
+    }
+
+    private void initFields(){
+        //Logo team
+        ivTeam = findViewById(R.id.logoTeam);
+        //Search view
+        svSearchPlayer = findViewById(R.id.svSearchPlayer);
+        //Text view
+        tvFirstName = findViewById(R.id.tv_playerFirstName);
+        tvLastName = findViewById(R.id.tv_playerName);
+        tvPoints = findViewById(R.id.tv_points);
+        tvAssists = findViewById(R.id.tv_assists);
+        tvReboundsO = findViewById(R.id.tv_reboundO);
+        tvReboundsD = findViewById(R.id.tv_reboundD);
+        tvBlocks = findViewById(R.id.tv_blocks);
+        tvSteals = findViewById(R.id.tv_steals);
+        tvTeam = findViewById(R.id.tv_playerTeam);
+        tvPosition = findViewById(R.id.tv_playerPost);
+        textViews = new TextView[]{tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals, tvTeam, tvPosition};
+    }
+
+    private void addQueryListener(){
         svSearchPlayer.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -52,22 +74,5 @@ public class PlayerStatsActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
-
-    private void initFields(){
-        ivTeam = findViewById(R.id.logoTeam);
-        svSearchPlayer = findViewById(R.id.svSearchPlayer);
-        tvFirstName = findViewById(R.id.tv_playerFirstName);
-        tvLastName = findViewById(R.id.tv_playerName);
-        tvPoints = findViewById(R.id.tv_points);
-        tvAssists = findViewById(R.id.tv_assists);
-        tvReboundsO = findViewById(R.id.tv_reboundO);
-        tvReboundsD = findViewById(R.id.tv_reboundD);
-        tvBlocks = findViewById(R.id.tv_blocks);
-        tvSteals = findViewById(R.id.tv_steals);
-        tvTeam = findViewById(R.id.tv_playerTeam);
-        tvPosition = findViewById(R.id.tv_playerPost);
-    }
-
 }
