@@ -1,7 +1,9 @@
 package com.android.projectandroid.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -10,7 +12,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.projectandroid.R;
+import com.android.projectandroid.adapter.SectionMatchAdapter;
 import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
+import com.android.projectandroid.fragment.FragmentAllMatch;
+import com.android.projectandroid.fragment.FragmentFavoritesMatch;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
@@ -22,6 +27,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
     private ImageView ivTeam;
     private SearchView svSearchPlayer;
     private String playerToSearch;
+    private ImageView svgArrowBack;
 
 
     @Override
@@ -31,6 +37,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
 
         initFields();
         addQueryListener();
+        addOnClickListenerArrow();
     }
 
     private void initFields(){
@@ -38,6 +45,8 @@ public class PlayerStatsActivity extends AppCompatActivity {
         ivTeam = findViewById(R.id.logoTeam);
         //Search view
         svSearchPlayer = findViewById(R.id.svSearchPlayer);
+        //Svg
+        svgArrowBack = findViewById(R.id.svgArrowBack);
         //Text view
         tvFirstName = findViewById(R.id.tv_playerFirstName);
         tvLastName = findViewById(R.id.tv_playerName);
@@ -75,4 +84,12 @@ public class PlayerStatsActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void addOnClickListenerArrow(){
+        svgArrowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });    }
 }

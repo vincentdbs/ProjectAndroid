@@ -29,8 +29,8 @@
 
         <ImageView
             android:id="@+id/svgMenu"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginEnd="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:fontFamily="@font/ttlakes"
-            android:text="12 - 10 - 2021"
+            android:text="12/10/2021"
             android:textColor="@color/black"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
