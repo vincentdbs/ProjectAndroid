@@ -61,6 +61,6 @@ public class MatchListAdapter extends BaseAdapter{
         time.setText(matches.get(i).getTime());
 
 
-        return null;
+        return convertView;
     }
 }
