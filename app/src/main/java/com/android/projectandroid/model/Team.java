@@ -3,12 +3,22 @@ package com.android.projectandroid.model;
 public class Team {
     private int logo;
     private String name, abreviation, city;
+    private boolean favorites;
 
-    public Team(int logo, String name, String abreviation, String city) {
+    public Team(int logo, String name, String abreviation, String city, boolean favorites) {
         this.logo = logo;
         this.name = name;
         this.abreviation = abreviation;
         this.city = city;
+        this.favorites = favorites;
+    }
+
+    public boolean isFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(boolean favorites) {
+        this.favorites = favorites;
     }
 
     public int getLogo() {
