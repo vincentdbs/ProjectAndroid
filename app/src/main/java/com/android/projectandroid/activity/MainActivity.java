@@ -56,13 +56,35 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(vpMatch);
         setupTabIcons(tabLayout);
+        tabSelectedListener(tabLayout);
+
         addListenerOnClickCalendar();
 
     }
 
     private void setupTabIcons(TabLayout tabLayout) {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_sports_basketball_32);
+        tabLayout.getTabAt(0).getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.blue));
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_star_border_32);
+    }
+
+    private void tabSelectedListener(TabLayout tabLayout){
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.blue));
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.black));
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     private void addListenerOnClickCalendar(){
