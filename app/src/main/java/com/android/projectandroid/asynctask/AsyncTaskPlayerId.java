@@ -1,10 +1,13 @@
 package com.android.projectandroid.asynctask;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.projectandroid.R;
 import com.android.projectandroid.utlis.utils;
 
 import org.json.JSONArray;
@@ -24,20 +27,16 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
     private TextView[] textViews;
     private String firstName, lastName;
     private ImageView ivTeam;
+    private Context context;
 
-    public AsyncTaskPlayerId(String firstName, String lastName, ImageView ivTeam, TextView... textViews){
+    public AsyncTaskPlayerId(Context context, String firstName, String lastName, ImageView ivTeam, TextView... textViews){
         this.textViews = textViews;
         this.firstName = firstName.toLowerCase();
         this.lastName = lastName.toLowerCase();
         this.ivTeam = ivTeam;
+        this.context = context;
     }
 
-    //todo delete
-    public AsyncTaskPlayerId(String firstName, String lastName){
-        this.textViews = null;
-        this.firstName = firstName.toLowerCase();
-        this.lastName = lastName.toLowerCase();
-    }
 
     @Override
     protected JSONObject doInBackground(String... strings) {
@@ -80,8 +79,11 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
                 String teamAbrev = player.getJSONObject("team").getString("abbreviation");
                 String position = player.getString("position");
                 new AsyncTaskPlayerStats(textViews, ivTeam, firstName, lastName, team, teamAbrev, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
+            }else{
+                utils.clearTextViews("...", textViews);
+                ivTeam.setImageResource(R.drawable.logo_nba);
+                Toast.makeText(context, "No user has been found", Toast.LENGTH_LONG).show();
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

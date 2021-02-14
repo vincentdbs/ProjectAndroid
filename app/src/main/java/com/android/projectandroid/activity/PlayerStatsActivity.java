@@ -63,7 +63,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
                 }else{
                     svSearchPlayer.setIconified(true);
                     Log.i(LOG_TAG, splited[0] + " " + splited[1]);
-                    new AsyncTaskPlayerId(splited[0].toLowerCase(), splited[1].toLowerCase(), ivTeam, textViews)
+                    new AsyncTaskPlayerId(getApplicationContext(), splited[0].toLowerCase(), splited[1].toLowerCase(), ivTeam, textViews)
                             .execute("https://www.balldontlie.io/api/v1/players?per_page=100&search=" + splited[1].toLowerCase());
                 }
                 return false;
