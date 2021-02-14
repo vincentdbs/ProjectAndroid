@@ -13,8 +13,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:dividerHeight="8.0sp"
+        android:dividerHeight="16.0sp"
         android:divider="@android:color/transparent"
-        android:layout_margin="8dp"/>
+        android:layout_margin="12dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
