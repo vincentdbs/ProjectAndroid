@@ -11,15 +11,11 @@ import java.util.List;
 public class SectionMatchAdapter extends FragmentPagerAdapter {
     // This array list will gonna add the fragment one after another
     private final List<Fragment> mFragmentList = new ArrayList<>();
-    // This list of type string is for the title of the tab
-//    private final List<String> mFragmentTitleList = new ArrayList<>();
 
     public static final int BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT = 1;
 
-
-    public void addFragment(Fragment fragment, String title) {
+    public void addFragment(Fragment fragment) {
         mFragmentList.add(fragment);
-//        mFragmentTitleList.add(title);
     }
 
     public SectionMatchAdapter(FragmentManager fm) {
@@ -34,9 +30,10 @@ public class SectionMatchAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-//        return mFragmentTitleList.get(position);
         return null;
     }
+
+
 
     @Override
     public int getCount() {

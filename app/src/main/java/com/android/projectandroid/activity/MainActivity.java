@@ -1,9 +1,11 @@
 package com.android.projectandroid.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.DatePickerDialog;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +27,8 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 public class MainActivity extends AppCompatActivity {
 //    TODO faire une classe asynctask mére et heritahe pour celle construite par moi avec overide de la methode on postexecute
     //todo change default date à cote du calendar
+    //todo icon n'apparaissent pas dans les tablayout
+
     private ImageView svgCalendar;
     private TextView tv_date;
     private ViewPager vpMatch;
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     //https://codinginflow.com/tutorials/android/tab-layout-with-fragments
     //https://medium.com/@royanimesh2211/swipeable-tab-layout-using-view-pager-and-fragment-in-android-ea62f839502b
     //https://stackoverflow.com/questions/15932975/complex-items-in-a-listview/15933181
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionMatchAdapter adapter = new SectionMatchAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentAllMatch(), "fkjshfk");
-        adapter.addFragment(new FragmentFavoritesMatch(), "fkdjgh");
+        adapter.addFragment(new FragmentAllMatch());
+        adapter.addFragment(new FragmentFavoritesMatch());
         viewPager.setAdapter(adapter);
     }
 }

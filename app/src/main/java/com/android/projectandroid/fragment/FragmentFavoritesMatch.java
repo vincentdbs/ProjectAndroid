@@ -28,6 +28,9 @@ public class FragmentFavoritesMatch extends Fragment{
 
         ArrayList<Match> listOfMatches = new ArrayList<>();
         listOfMatches.add(new Match(R.drawable.logo_spurs, R.drawable.logo_pacers, "Spurs", "Pacers", "96", "82", "10AM"));
+        listOfMatches.add(new Match(R.drawable.logo_spurs, R.drawable.logo_pacers, "Spurs", "Pacers", "96", "82", "10AM"));
+        listOfMatches.add(new Match(R.drawable.logo_spurs, R.drawable.logo_pacers, "Spurs", "Pacers", "96", "82", "10AM"));
+
 
         MatchListAdapter adapter = new MatchListAdapter(getContext(), listOfMatches);
 
