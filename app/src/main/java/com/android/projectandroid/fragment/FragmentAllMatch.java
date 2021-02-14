@@ -1,6 +1,7 @@
 package com.android.projectandroid.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,15 @@ import androidx.fragment.app.Fragment;
 
 import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.MatchListAdapter;
+import com.android.projectandroid.asynctask.AsyncTaskMatch;
 import com.android.projectandroid.model.Match;
+import com.android.projectandroid.utlis.utils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class FragmentAllMatch extends Fragment {
 
@@ -27,29 +34,13 @@ public class FragmentAllMatch extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ArrayList<Match> listOfMatches = new ArrayList<>();
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-        listOfMatches.add(new Match(R.drawable.logo_76ers, R.drawable.logo_bucks, "76ers", "Bucks", "112", "113", "Finished"));
-
-        MatchListAdapter adapter = new MatchListAdapter(getContext(), listOfMatches);
+        MatchListAdapter adapter = new MatchListAdapter(getContext());
 
         ListView list = (ListView) getActivity().findViewById(R.id.lvAllMatch);
 
         list.setAdapter(adapter);
+
+        String param = utils.getNowDate();
+        new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?start_date=" + param+ "&end_date=" + param);
     }
 }

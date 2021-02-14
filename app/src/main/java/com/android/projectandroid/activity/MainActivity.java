@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.DatePickerDialog;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,9 +50,46 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.layoutFooter);
         tabLayout.setupWithViewPager(vpMatch);
+        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.blue));
+        setupTabIcons(tabLayout);
+        tabSelectedListener(tabLayout);
 
+        addListenerOnClickCalendar();
 
+    }
 
+    private void setupTabIcons(TabLayout tabLayout) {
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_sports_basketball_32);
+        tabLayout.getTabAt(0).getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.blue));
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_star_border_32);
+    }
+
+    private void tabSelectedListener(TabLayout tabLayout){
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()){
+                    case 0:
+                        tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.blue));
+                        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.blue));
+                        break;
+                    case 1:
+                        tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.red));
+                        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.red));
+                }
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.black));
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     private void addListenerOnClickCalendar(){
@@ -75,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionMatchAdapter adapter = new SectionMatchAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentAllMatch());
-        adapter.addFragment(new FragmentFavoritesMatch());
+        adapter.addFragment(new FragmentAllMatch(), "one");
+        adapter.addFragment(new FragmentFavoritesMatch(), "two");
         viewPager.setAdapter(adapter);
     }
 }

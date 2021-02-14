@@ -87,6 +87,7 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        //todo checker tp2 si il faut supprimer ligne 91 + pareil dans les autres adapter
         super.onPostExecute(jsonObject);
     }
 
