@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_corner">
 
     <LinearLayout
         android:id="@+id/layoutTeamDom"
@@ -13,10 +14,7 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp">
+        android:layout_margin="24dp">
 
         <ImageView
             android:id="@+id/logoTeamDom"
@@ -25,6 +23,8 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
+            android:fontFamily="@font/ttlakes"
+            android:textColor="@color/black"
             android:id="@+id/nameTeamDom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,33 +41,44 @@
         android:layout_marginRight="12dp"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/layoutTeamExt"
         app:layout_constraintStart_toEndOf="@id/layoutTeamDom"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661">
 
         <TextView
             android:id="@+id/scoreTeamDom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:fontFamily="@font/superstar"
+            android:text="112"
+            android:textColor="@color/black"
+            android:textSize="32dp" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:fontFamily="@font/ttlakes"
+            android:text="Finished"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/scoreTeamExt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:fontFamily="@font/superstar"
+            android:text="112"
+            android:textColor="@color/black"
+            android:textSize="32dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,10 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -89,6 +97,8 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
+            android:fontFamily="@font/ttlakes"
+            android:textColor="@color/black"
             android:id="@+id/nameTeamExt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
