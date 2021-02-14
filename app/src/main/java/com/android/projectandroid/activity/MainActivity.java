@@ -49,12 +49,8 @@ public class MainActivity extends AppCompatActivity {
         setupViewPager(vpMatch);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.layoutFooter);
-//        Drawable a = tabLayout.getTabAt(0).getIcon();
-//        tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_star_border_32);
-//        tabLayout.getTabAt(0).getIcon().setVisible(true, true);
-//        Drawable b = tabLayout.getTabAt(0).getIcon();
-
         tabLayout.setupWithViewPager(vpMatch);
+        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.blue));
         setupTabIcons(tabLayout);
         tabSelectedListener(tabLayout);
 
@@ -72,7 +68,16 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.blue));
+                switch (tab.getPosition()){
+                    case 0:
+                        tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.blue));
+                        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.blue));
+                        break;
+                    case 1:
+                        tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.red));
+                        tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.red));
+                }
+
             }
 
             @Override
