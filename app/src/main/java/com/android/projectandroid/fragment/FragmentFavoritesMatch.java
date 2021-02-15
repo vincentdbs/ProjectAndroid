@@ -1,6 +1,7 @@
 package com.android.projectandroid.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,12 @@ import com.android.projectandroid.utlis.utils;
 
 import java.util.ArrayList;
 
+import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class FragmentFavoritesMatch extends Fragment{
+    private MatchListAdapter adapter;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,13 +35,19 @@ public class FragmentFavoritesMatch extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //todo recupere les matchs des équipes favorites et non de toutes les équipes
-        MatchListAdapter adapter = new MatchListAdapter(getContext());
+        ListView list =  getActivity().findViewById(R.id.lvFavoritesMatch);
 
-        ListView list = (ListView) getActivity().findViewById(R.id.lvFavoritesMatch);
-
+        adapter = new MatchListAdapter(getContext());
         list.setAdapter(adapter);
 
+        String paramDate = utils.getNowDate();
+        new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?start_date=" + paramDate+ "&end_date=" + paramDate + getParamArrayOfApiTeamId());
+    }
+
+    @Override
+    public void onResume() {
+        Log.i(LOG_TAG, "Resume fragment");
+        super.onResume();
         String paramDate = utils.getNowDate();
         new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?start_date=" + paramDate+ "&end_date=" + paramDate + getParamArrayOfApiTeamId());
     }

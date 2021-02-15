@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     //todo use real toolbar component in main activity
     //todo use arrayadapter instead of baseadapter
     //todo link favorite team activity dans le menu haut droit
+    // todo logo app
 
     private ImageView svgCalendar, svgMenu;
     private TextView tv_date;
