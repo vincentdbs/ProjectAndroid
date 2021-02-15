@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:id="@+id/layoutSearchBarPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/svgArrowBack"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/ic_arrow_left_447"
+            app:tint="@color/black" />
+
+        <SearchView
+            android:id="@+id/svSearchPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:queryHint="First name followed by last name"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSearchBarPlayer"
+        android:weightSum="3">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="right"
+            android:background="@color/white"
+            android:id="@+id/layoutPlayerData"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               android:layout_marginStart="32dp">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/ttlakesbold"
+                   android:text="..."
+                   android:textSize="32sp"
+                   android:textColor="@color/black"
+                   android:id="@+id/tv_playerFirstName"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/ttlakesbold"
+                   android:text="..."
+                   android:textSize="32sp"
+                   android:textColor="@color/black"
+                   android:id="@+id/tv_playerName" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/ttlakes"
+                   android:text="..."
+                   android:textSize="24sp"
+                   android:textColor="@color/black"
+                   android:id="@+id/tv_playerTeam" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="@font/ttlakes"
+                   android:text="..."
+                   android:textSize="24sp"
+                   android:textColor="@color/black"
+
+                   android:id="@+id/tv_playerPost" />
+
+           </LinearLayout>
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_playerNumber"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="32dp"-->
+<!--                android:fontFamily="@font/superstar"-->
+<!--                android:text="9"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="104sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.28" />-->
+
+                <ImageView
+                    android:id="@+id/logoTeam"
+                    android:src="@drawable/logo_nba"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginEnd="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.28" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TableLayout
+            android:id="@+id/layoutStats"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="right"
+            android:layout_weight="2"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:id="@+id/row1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="48dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layoutPoints"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="..."
+                        android:id="@+id/tv_points"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Points"
+                        android:id="@+id/tv_points_des"
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="..."
+                        android:id="@+id/tv_assists"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Assists"
+                        android:id="@+id/tv_assists_des"
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/row2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="48dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layoutReboundO"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="..."
+                        android:id="@+id/tv_reboundO"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Rebounds O."
+                        android:id="@+id/tv_reboundO_des"
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layoutReboundD"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="..."
+                        android:id="@+id/tv_reboundD"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Rebounds D."
+                        android:id="@+id/tv_reboundD_des"
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/row3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layoutBlocks"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="..."
+                        android:id="@+id/tv_blocks"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Blocks"
+                        android:id="@+id/tv_blocks_des"
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layoutSteals"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="..."
+                        android:id="@+id/tv_steals"
+                        android:gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:textSize="64sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Steals"
+                        android:id="@+id/tv_steals_des"
+                        android:gravity="center"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/superstar"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </TableRow>
+
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
