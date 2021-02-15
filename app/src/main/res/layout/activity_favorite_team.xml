@@ -48,7 +48,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/switchOnlyFavorite"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_star_border_32"
+            app:srcCompat="@drawable/ic_baseline_star_half_24"
             app:tint="@color/black" />
 
         <androidx.appcompat.widget.SwitchCompat
