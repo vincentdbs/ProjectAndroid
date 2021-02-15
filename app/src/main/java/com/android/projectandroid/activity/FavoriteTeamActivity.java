@@ -6,6 +6,8 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 
@@ -25,11 +27,12 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     private ArrayList<Team> listOfTeam;
     private ArrayList<String> listOfFavoriteTeam;
     private TeamAdapter adapter;
-
+    private Button btnResetFav;
 
     // todo ajouter un bouton remise à 0 de tous les favorirs -> clean la bdd
     // todo trouve un autre moyen car pas erreur en fonction de la version sur les map des hashmap
     // todo les équipes unstared dans favoris doivent être supprimé ("desafficher") de la liste en plus de la bdd
+    // todo corriger les bugs de logiques sur les onclick => pas de refresh apres le onclicl sur le reset ...
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         //Find view by ID
         list = findViewById(R.id.lvFavoriteTeam);
         switchFavorite = findViewById(R.id.switchOnlyFavorite);
+        btnResetFav = findViewById(R.id.btnResetFav);
 
         //Get favorite team abbreviation from DB;
         listOfFavoriteTeam = getFavoriteFromDb();
@@ -53,8 +57,9 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         adapter = new TeamAdapter(getApplicationContext(), listOfTeam);
         list.setAdapter(adapter);
 
-        //Listener onClickSwitch
+        //Listener
         onClickSwitch();
+        btnResetFavOnClickListener();
     }
 
     private void onClickSwitch(){
@@ -79,6 +84,20 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                     });
                 }
                 //Notify the adapter that the dataset changed
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    public void btnResetFavOnClickListener(){
+        btnResetFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TeamDml db = new TeamDml(getApplicationContext());
+                db.deleteAllTableContent();
+                MAP_LOGO_TEAM.forEach((str, team) -> {
+                    listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
+                });
                 adapter.notifyDataSetChanged();
             }
         });
