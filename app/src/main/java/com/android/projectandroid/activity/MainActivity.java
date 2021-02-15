@@ -22,7 +22,6 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 //    TODO faire une classe asynctask mére et heritahe pour celle construite par moi avec overide de la methode on postexecute
     //todo change default date à cote du calendar
-    //todo icon n'apparaissent pas dans les tablayout
     //todo changer logo de l'app
     //todo use real toolbar component in main activity
     //todo use arrayadapter instead of baseadapter

@@ -16,6 +16,7 @@ import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.TeamAdapter;
 import com.android.projectandroid.database.TeamDml;
 import com.android.projectandroid.model.Team;
+import com.android.projectandroid.utlis.constants;
 
 import java.util.ArrayList;
 
@@ -51,9 +52,9 @@ public class FavoriteTeamActivity extends AppCompatActivity {
 
         //Fill the list of team from constants => favorite if abbreviation in listOfFavoriteTeam
         listOfTeam = new ArrayList<>();
-        MAP_LOGO_TEAM.forEach((str, team) -> {
+        for (Team team : MAP_LOGO_TEAM.values()) {
             listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
-        });
+        }
 
         //Set the adapter
         adapter = new TeamAdapter(getApplicationContext(), listOfTeam);
@@ -73,17 +74,18 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                 listOfTeam.clear();
                 if(isChecked){
                     //        todo trouve un autre moyen car pas erreur en fonction de la version
-                    MAP_LOGO_TEAM.forEach((str, team) -> {
+                    for (Team team : MAP_LOGO_TEAM.values()) {
                         //Only add the favorite team to the list
                         if(listOfFavoriteTeam.contains(team.getAbreviation())){
                             listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), true));
                         }
-                    });
+                    }
+
                 }else{
                 //todo trouve un autre moyen car pas erreur en fonction de la version
-                    MAP_LOGO_TEAM.forEach((str, team) -> {
+                    for (Team team : MAP_LOGO_TEAM.values()) {
                         listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
-                    });
+                    }
                 }
                 //Notify the adapter that the dataset changed
                 adapter.notifyDataSetChanged();
@@ -99,11 +101,10 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                 db.deleteAllTableContent();
                 listOfTeam.clear();
                 if(!switchFavorite.isChecked()){
-                    MAP_LOGO_TEAM.forEach((str, team) -> {
+                    for (Team team : MAP_LOGO_TEAM.values()) {
                         listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
-                    });
+                    }
                 }
-
 
                 adapter.notifyDataSetChanged();
             }
