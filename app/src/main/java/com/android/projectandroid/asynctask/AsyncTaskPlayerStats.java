@@ -80,7 +80,7 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
             textViews[1].setText(utils.capitalize(lastName));
             textViews[8].setText(team);
             textViews[9].setText(position);
-            ivTeam.setImageResource(MAP_LOGO_TEAM.get(teamAbrev));
+            ivTeam.setImageResource(MAP_LOGO_TEAM.get(teamAbrev).getLogo());
             //Statistics of the player in the current season
             if(data.length() != 0){
                 JSONObject playerStat = data.getJSONObject(0);
