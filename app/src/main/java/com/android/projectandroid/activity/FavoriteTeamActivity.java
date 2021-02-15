@@ -29,10 +29,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     private TeamAdapter adapter;
     private Button btnResetFav;
 
-    // todo ajouter un bouton remise à 0 de tous les favorirs -> clean la bdd
     // todo trouve un autre moyen car pas erreur en fonction de la version sur les map des hashmap
-    // todo les équipes unstared dans favoris doivent être supprimé ("desafficher") de la liste en plus de la bdd
-    // todo corriger les bugs de logiques sur les onclick => pas de refresh apres le onclicl sur le reset ...
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,9 +92,11 @@ public class FavoriteTeamActivity extends AppCompatActivity {
             public void onClick(View view) {
                 TeamDml db = new TeamDml(getApplicationContext());
                 db.deleteAllTableContent();
+                listOfTeam.clear();
                 MAP_LOGO_TEAM.forEach((str, team) -> {
                     listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
                 });
+
                 adapter.notifyDataSetChanged();
             }
         });

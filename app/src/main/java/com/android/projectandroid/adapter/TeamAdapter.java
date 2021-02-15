@@ -68,6 +68,12 @@ public class TeamAdapter extends BaseAdapter {
         return convertView;
     }
 
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+        Log.i(LOG_TAG, "HEREE-------------------");
+    }
+
     private void addOnClickStarListener(ImageView star, int position){
         star.setOnClickListener(view -> {
             TeamDml db = new TeamDml(context);
