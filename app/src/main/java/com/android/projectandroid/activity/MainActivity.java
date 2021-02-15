@@ -15,13 +15,13 @@ import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.SectionMatchAdapter;
 import com.android.projectandroid.fragment.FragmentAllMatch;
 import com.android.projectandroid.fragment.FragmentFavoritesMatch;
+import com.android.projectandroid.utlis.utils;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 //    TODO faire une classe asynctask mére et heritahe pour celle construite par moi avec overide de la methode on postexecute
-    //todo change default date à cote du calendar
     //todo changer logo de l'app
     //todo use real toolbar component in main activity
     //todo use arrayadapter instead of baseadapter
@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         tv_date = findViewById(R.id.date);
         vpMatch = findViewById(R.id.viewPagerMatch);
         svgMenu = findViewById(R.id.svgMenu);
+
+        tv_date.setText(utils.getNowDate());
 
         setupViewPager(vpMatch);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.layoutFooter);
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             myCalendar.set(Calendar.MONTH, month);
             myCalendar.set(Calendar.DAY_OF_MONTH, day);
             // Set the text view to the selected date
-            tv_date.setText(day + "/" + month + "/" + year);
+            tv_date.setText(year+ "-" + month + "-" + day);
         };
 
         svgCalendar.setOnClickListener(view -> new DatePickerDialog(
