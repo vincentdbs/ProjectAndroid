@@ -13,6 +13,15 @@ public class Team {
         this.favorites = favorites;
     }
 
+    public Team(int logo, String name, String abreviation, String city) {
+        this.logo = logo;
+        this.name = name;
+        this.abreviation = abreviation;
+        this.city = city;
+        this.favorites = false;
+    }
+
+
     public boolean isFavorites() {
         return favorites;
     }
