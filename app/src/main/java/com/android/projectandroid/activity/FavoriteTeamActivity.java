@@ -9,12 +9,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.TeamAdapter;
 import com.android.projectandroid.database.TeamDml;
 import com.android.projectandroid.model.Team;
+import com.android.projectandroid.utlis.constants;
 
 import java.util.ArrayList;
 
@@ -28,11 +30,9 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     private ArrayList<String> listOfFavoriteTeam;
     private TeamAdapter adapter;
     private Button btnResetFav;
+    private ImageView ivBackArrow;
 
-    // todo ajouter un bouton remise à 0 de tous les favorirs -> clean la bdd
-    // todo trouve un autre moyen car pas erreur en fonction de la version sur les map des hashmap
-    // todo les équipes unstared dans favoris doivent être supprimé ("desafficher") de la liste en plus de la bdd
-    // todo corriger les bugs de logiques sur les onclick => pas de refresh apres le onclicl sur le reset ...
+    //todo recycler view instead of list view
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +43,18 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         list = findViewById(R.id.lvFavoriteTeam);
         switchFavorite = findViewById(R.id.switchOnlyFavorite);
         btnResetFav = findViewById(R.id.btnResetFav);
+        ivBackArrow = findViewById(R.id.svgArrowBackTeam);
+
+        ivBackArrow.setOnClickListener(v -> finish());
 
         //Get favorite team abbreviation from DB;
         listOfFavoriteTeam = getFavoriteFromDb();
 
         //Fill the list of team from constants => favorite if abbreviation in listOfFavoriteTeam
         listOfTeam = new ArrayList<>();
-        MAP_LOGO_TEAM.forEach((str, team) -> {
+        for (Team team : MAP_LOGO_TEAM.values()) {
             listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
-        });
+        }
 
         //Set the adapter
         adapter = new TeamAdapter(getApplicationContext(), listOfTeam);
@@ -70,18 +73,17 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                 //Clear the old list of team
                 listOfTeam.clear();
                 if(isChecked){
-                    //        todo trouve un autre moyen car pas erreur en fonction de la version
-                    MAP_LOGO_TEAM.forEach((str, team) -> {
+                    for (Team team : MAP_LOGO_TEAM.values()) {
                         //Only add the favorite team to the list
                         if(listOfFavoriteTeam.contains(team.getAbreviation())){
                             listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), true));
                         }
-                    });
+                    }
+
                 }else{
-                //todo trouve un autre moyen car pas erreur en fonction de la version
-                    MAP_LOGO_TEAM.forEach((str, team) -> {
+                    for (Team team : MAP_LOGO_TEAM.values()) {
                         listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
-                    });
+                    }
                 }
                 //Notify the adapter that the dataset changed
                 adapter.notifyDataSetChanged();
@@ -95,9 +97,13 @@ public class FavoriteTeamActivity extends AppCompatActivity {
             public void onClick(View view) {
                 TeamDml db = new TeamDml(getApplicationContext());
                 db.deleteAllTableContent();
-                MAP_LOGO_TEAM.forEach((str, team) -> {
-                    listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
-                });
+                listOfTeam.clear();
+                if(!switchFavorite.isChecked()){
+                    for (Team team : MAP_LOGO_TEAM.values()) {
+                        listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
+                    }
+                }
+
                 adapter.notifyDataSetChanged();
             }
         });

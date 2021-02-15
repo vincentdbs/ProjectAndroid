@@ -21,7 +21,6 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class PlayerStatsActivity extends AppCompatActivity {
-    // todo clear the fields if no user found
     private TextView tvFirstName, tvLastName, tvTeam, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
     private TextView[] textViews;
     private ImageView ivTeam;

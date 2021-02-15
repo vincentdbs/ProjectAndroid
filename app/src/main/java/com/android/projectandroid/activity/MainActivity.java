@@ -22,10 +22,14 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 //    TODO faire une classe asynctask mére et heritahe pour celle construite par moi avec overide de la methode on postexecute
     //todo change default date à cote du calendar
-    //todo icon n'apparaissent pas dans les tablayout
     //todo changer logo de l'app
-    //use real toolbar component in main activity
+    //todo use real toolbar component in main activity
     //todo use arrayadapter instead of baseadapter
+    //todo link favorite team activity dans le menu haut droit
+    // todo logo app
+    // todo sensor + service + permission
+    // todo comments + cleanup
+    // todo gerer le onclick du calendrier => refresh les fragments
 
     private ImageView svgCalendar, svgMenu;
     private TextView tv_date;
@@ -113,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         svgMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PlayerStatsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), FavoriteTeamActivity.class);
                 startActivity(intent);
             }
         });

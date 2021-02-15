@@ -73,4 +73,6 @@ public class MatchListAdapter extends BaseAdapter{
     public void add(Match match){
         matches.add(match);
     }
+
+    public void clearMatches(){ matches.clear();}
 }

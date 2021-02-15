@@ -36,6 +36,7 @@ public class AsyncTaskMatch extends AsyncTask<String, Void, JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
+        adapter.clearMatches();
         Log.i(LOG_TAG, jsonObject.toString());
         try {
             JSONArray matches = jsonObject.getJSONArray("data");
@@ -60,6 +61,7 @@ public class AsyncTaskMatch extends AsyncTask<String, Void, JSONObject> {
 
     @Override
     protected JSONObject doInBackground(String... strings) {
+        Log.i(LOG_TAG, strings[0]);
         URL url;
         try {
             //Replace http by https
