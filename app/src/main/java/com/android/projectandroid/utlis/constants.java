@@ -9,7 +9,7 @@ import java.util.Map;
 public class constants {
     public final static String LOG_TAG = "NBA_APP";
     public final static Map<String, Team> MAP_LOGO_TEAM = new HashMap<String, Team>() {{
-        put("ATL", new Team(R.drawable.logo_hawks, "Hawks", "ATL", "Atlanta"));
+        put("ATL", new Team(R.drawable.logo_hawks, "Hawks", "ATL", "Atlanta", true));
         put("BOS", new Team(R.drawable.logo_celtics, "Celtics", "BOS", "Boston"));
         put("BKN", new Team(R.drawable.logo_nets, "Nets", "BKN", "Brooklyn" ));
         put("CHA", new Team(R.drawable.logo_hornets, "Hornets", "CHA", "Charlotte"));
@@ -17,7 +17,7 @@ public class constants {
         put("CLE", new Team(R.drawable.logo_cavaliers, "Cavaliers", "CLE", "Cleveland"));
         put("DAL", new Team(R.drawable.logo_mavericks, "Mavericks", "DAL", "Dallas"));
         put("DEN", new Team(R.drawable.logo_nuggets, "Nuggets", "DEN", "Denver"));
-        put("DET", new Team(R.drawable.logo_pistons, "Pistons", "DET", "Detroit"));
+        put("DET", new Team(R.drawable.logo_pistons, "Pistons", "DET", "Detroit", true));
         put("GSW", new Team(R.drawable.logo_golden_states, "Warriors", "GSW", "Golden State"));
         put("HOU", new Team(R.drawable.logo_rockets, "Rockets", "HOU", "Houston"));
         put("IND", new Team(R.drawable.logo_pacers, "Pacers", "IND", "Indiana"));
@@ -25,12 +25,12 @@ public class constants {
         put("LAL", new Team(R.drawable.logo_lakers, "Lakers", "LAL", "Los Angeles"));
         put("MEM", new Team(R.drawable.logo_grizzlies, "Grizzlies", "MEM", "Memphis"));
         put("MIA", new Team(R.drawable.logo_heat, "Heat", "MIA", "Miami"));
-        put("MIL", new Team(R.drawable.logo_bucks, "Bucks", "MIL", "Milwaukeee"));
+        put("MIL", new Team(R.drawable.logo_bucks, "Bucks", "MIL", "Milwaukeee", true));
         put("MIN", new Team(R.drawable.logo_timberwolves, "Timberwolves", "MIN", "Minnesota"));
         put("NOP", new Team(R.drawable.logo_pelicans, "Pelican", "NOP", "New Orleans"));
         put("NYK", new Team(R.drawable.logo_knicks, "Knicks", "NYK", "New York"));
         put("OKC", new Team(R.drawable.logo_thunder, "Thunder", "OKC", "Oklahoma City"));
-        put("ORL", new Team(R.drawable.logo_magic, "Magic", "ORL", "Orlando"));
+        put("ORL", new Team(R.drawable.logo_magic, "Magic", "ORL", "Orlando", true));
         put("PHI", new Team(R.drawable.logo_76ers, "76ers", "PHI", "Philadelphia"));
         put("PHX", new Team(R.drawable.logo_suns, "Suns", "PHX", "Phoenix"));
         put("POR", new Team(R.drawable.logo_trail_blazers, "Trail Blazers", "POR", "Portland"));

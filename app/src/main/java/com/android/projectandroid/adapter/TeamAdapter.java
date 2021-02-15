@@ -1,6 +1,7 @@
 package com.android.projectandroid.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import com.android.projectandroid.model.Match;
 import com.android.projectandroid.model.Team;
 
 import java.util.ArrayList;
+
+import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class TeamAdapter extends BaseAdapter {
     private Context context;

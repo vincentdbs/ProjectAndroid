@@ -3,6 +3,7 @@ package com.android.projectandroid.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.android.projectandroid.model.Team;
 
 import java.util.ArrayList;
 
+import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class FavoriteTeamActivity extends AppCompatActivity {
@@ -25,6 +27,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         ArrayList<Team> listOfTeam = new ArrayList<>();
 
 //        todo trouve un autre moyen car pas erreur en fonction de la version
+        // todo remplacer par une bdd locale
         MAP_LOGO_TEAM.forEach((str, team) -> {
             listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), team.isFavorites()));
         });

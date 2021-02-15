@@ -17,27 +17,60 @@
 
         <ImageView
             android:id="@+id/svgArrowBackTeam"
-            android:layout_marginStart="12dp"
             android:layout_width="24dp"
             android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ic_arrow_left_447"
             app:tint="@color/black" />
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ttlakesbold"
-            android:text="Favorites team"
-            android:textSize="24sp"
-            android:textColor="@color/black"
             android:layout_marginStart="12dp"
+            android:fontFamily="@font/ttlakesbold"
+            android:text="Favorite teams"
+            android:textColor="@color/black"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/svgArrowBackTeam"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/svgStarBorder"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/switchOnlyFavorite"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_star_border_32"
+            app:tint="@color/black" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchOnlyFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/svgStarFull"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.513" />
+
+        <ImageView
+            android:id="@+id/svgStarFull"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_star_24"
+            app:tint="@color/black" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
