@@ -55,6 +55,7 @@ public class TeamAdapter extends BaseAdapter {
         TextView tvNameTeam = convertView.findViewById(R.id.tvNameFavoriteTeam);
 
         logo.setImageResource(teams.get(i).getLogo());
+        star.setColorFilter(R.color.black);
         tvNameTeam.setText(teams.get(i).getName());
 
         return convertView;
