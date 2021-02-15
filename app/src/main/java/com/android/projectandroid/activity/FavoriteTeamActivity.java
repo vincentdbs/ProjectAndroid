@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.android.projectandroid.R;
@@ -28,6 +29,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     private ArrayList<String> listOfFavoriteTeam;
     private TeamAdapter adapter;
     private Button btnResetFav;
+    private ImageView ivBackArrow;
 
     // todo trouve un autre moyen car pas erreur en fonction de la version sur les map des hashmap
 
@@ -40,6 +42,9 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         list = findViewById(R.id.lvFavoriteTeam);
         switchFavorite = findViewById(R.id.switchOnlyFavorite);
         btnResetFav = findViewById(R.id.btnResetFav);
+        ivBackArrow = findViewById(R.id.svgArrowBackTeam);
+
+        ivBackArrow.setOnClickListener(v -> finish());
 
         //Get favorite team abbreviation from DB;
         listOfFavoriteTeam = getFavoriteFromDb();
