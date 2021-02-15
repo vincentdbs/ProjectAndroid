@@ -3,23 +3,16 @@ package com.android.projectandroid.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.BaseColumns;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 
 import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.TeamAdapter;
-import com.android.projectandroid.database.TeamContract;
-import com.android.projectandroid.database.TeamDbHelper;
 import com.android.projectandroid.database.TeamDml;
 import com.android.projectandroid.model.Team;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
@@ -83,13 +76,25 @@ public class FavoriteTeamActivity extends AppCompatActivity {
 
     public void database(){
         TeamDml db = new TeamDml(getApplicationContext());
-        db.readLine();
+        db.readAllLine();
 
+        db.addLine("SAS");
+        db.addLine("ORL");
+        db.addLine("LAC");
 
-        db.deleteTableContent();
+        db.readAllLine();
 
-        db.readLine();
+        db.deleteFilteredTableContent("ORL");
 
+        db.readAllLine();
+
+        db.deleteAllTableContent();
+
+        db.readAllLine();
+
+        db.addLine("GSW");
+
+        db.readAllLine();
 
     }
 
