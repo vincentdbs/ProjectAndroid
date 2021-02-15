@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
     //todo change default date à cote du calendar
     //todo icon n'apparaissent pas dans les tablayout
     //todo changer logo de l'app
-    //use real toolbar component in main activity
+    //todo use real toolbar component in main activity
     //todo use arrayadapter instead of baseadapter
+    //todo link favorite team activity dans le menu haut droit
 
     private ImageView svgCalendar, svgMenu;
     private TextView tv_date;
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         svgMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PlayerStatsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), FavoriteTeamActivity.class);
                 startActivity(intent);
             }
         });

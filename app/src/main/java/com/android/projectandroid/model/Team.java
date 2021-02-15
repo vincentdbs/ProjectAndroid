@@ -4,6 +4,7 @@ public class Team {
     private int logo;
     private String name, abreviation, city;
     private boolean favorites;
+    private int apiId;
 
     public Team(int logo, String name, String abreviation, String city, boolean favorites) {
         this.logo = logo;
@@ -11,6 +12,7 @@ public class Team {
         this.abreviation = abreviation;
         this.city = city;
         this.favorites = favorites;
+        this.apiId = 0;
     }
 
     public Team(int logo, String name, String abreviation, String city) {
@@ -19,6 +21,24 @@ public class Team {
         this.abreviation = abreviation;
         this.city = city;
         this.favorites = false;
+        this.apiId = 0;
+    }
+
+    public Team(int logo, String name, String abreviation, String city, int apiId) {
+        this.logo = logo;
+        this.name = name;
+        this.abreviation = abreviation;
+        this.city = city;
+        this.favorites = false;
+        this.apiId = apiId;
+    }
+
+    public int getApiId() {
+        return apiId;
+    }
+
+    public void setApiId(int apiId) {
+        this.apiId = apiId;
     }
 
     public void flipFavorite(){

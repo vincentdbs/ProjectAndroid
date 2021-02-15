@@ -12,10 +12,13 @@ import androidx.fragment.app.Fragment;
 import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.MatchListAdapter;
 import com.android.projectandroid.asynctask.AsyncTaskMatch;
+import com.android.projectandroid.database.TeamDml;
 import com.android.projectandroid.model.Match;
 import com.android.projectandroid.utlis.utils;
 
 import java.util.ArrayList;
+
+import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class FragmentFavoritesMatch extends Fragment{
     @Nullable
@@ -35,7 +38,18 @@ public class FragmentFavoritesMatch extends Fragment{
 
         list.setAdapter(adapter);
 
-        String param = utils.getNowDate();
-        new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?start_date=" + param+ "&end_date=" + param);
+        String paramDate = utils.getNowDate();
+        new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?start_date=" + paramDate+ "&end_date=" + paramDate + getParamArrayOfApiTeamId());
+    }
+
+    private String getParamArrayOfApiTeamId(){
+        TeamDml db = new TeamDml(getContext());
+        ArrayList<String> listOfFav = db.getAllFavTeamAbrev();
+        String param = "";
+        for (String str: listOfFav) {
+            param += "&team_ids[]=" + MAP_LOGO_TEAM.get(str).getApiId();
+        }
+
+        return param.isEmpty() ? "&team_ids[]=0" : param;
     }
 }
