@@ -6,12 +6,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.TeamAdapter;
+import com.android.projectandroid.model.Team;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class TeamDml {
     private TeamDbHelper teamDbHelper;
@@ -78,4 +82,16 @@ public class TeamDml {
         }
         cursor.close();
     }
+
+    public void deleteTableContent(){
+        // Define 'where' part of query.
+                String selection = TeamContract.TeamEntry.COLUMN_NAME_ABREV + " LIKE ?";
+// Specify arguments in placeholder order.
+        String[] selectionArgs = { "SAS" };
+// Issue SQL statement.
+        int deletedRows = db.delete(TeamContract.TeamEntry.TABLE_NAME, selection, selectionArgs);
+        Log.i(LOG_TAG, "a " + deletedRows);
+    }
+
+
 }

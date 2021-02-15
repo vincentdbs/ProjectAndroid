@@ -84,6 +84,13 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     public void database(){
         TeamDml db = new TeamDml(getApplicationContext());
         db.readLine();
+
+
+        db.deleteTableContent();
+
+        db.readLine();
+
+
     }
 
     @Override
