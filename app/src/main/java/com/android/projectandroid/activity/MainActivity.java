@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     //todo link favorite team activity dans le menu haut droit
     // todo logo app
     // todo sensor + service + permission
+
     // todo comments + cleanup
     // todo gerer le onclick du calendrier => refresh les fragments
 

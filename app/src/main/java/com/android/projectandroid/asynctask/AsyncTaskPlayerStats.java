@@ -25,7 +25,7 @@ import java.net.URL;
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
-public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
+public class AsyncTaskPlayerStats extends AsyncTaskStringJson {
     private TextView[] textViews;
     private String firstName, lastName, team, position, teamAbrev;
     private ImageView ivTeam;
@@ -40,35 +40,6 @@ public class AsyncTaskPlayerStats extends AsyncTask<String, Void, JSONObject> {
         this.teamAbrev = teamAbrev;
         this.ivTeam = ivTeam;
         this.context = context;
-    }
-
-    @Override
-    protected JSONObject doInBackground(String... strings) {
-        URL url;
-        try {
-            //Request the api to get the player stats
-            url = new URL(strings[0]);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-            try {
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                String s = utils.readStream(in);
-
-                Log.i(LOG_TAG, s);
-
-                //Get the authenticated value
-                return new JSONObject(s);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } finally {
-                urlConnection.disconnect();
-            }
-        } catch (MalformedURLException e) {
-            Log.i(LOG_TAG, e.toString());
-        } catch (IOException e) {
-            Log.i(LOG_TAG, e.toString());
-        }
-        return null;
     }
 
     @Override
