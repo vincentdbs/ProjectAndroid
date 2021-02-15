@@ -42,7 +42,7 @@ public class TeamDml {
         //todo handle error if mauvaise insertion dans la bdd
     }
 
-    public void readAllLine(){
+    public Cursor readAllLine(){
         Cursor cursor = db.query(
                 TeamContract.TeamEntry.TABLE_NAME,   // The table to query
                 null,             // The array of columns to return (pass null to get all)
@@ -55,13 +55,36 @@ public class TeamDml {
 
         List itemIds = new ArrayList<>();
         while(cursor.moveToNext()) {
-            long itemId = cursor.getLong(
-                    cursor.getColumnIndexOrThrow(TeamContract.TeamEntry._ID));
+            long itemId = cursor.getLong(cursor.getColumnIndexOrThrow(TeamContract.TeamEntry._ID));
             itemIds.add(itemId);
         }
         Log.i(LOG_TAG, "Number of row" + itemIds.size());
-        cursor.close();
+        return cursor;
     }
+
+    public ArrayList<String> getAllFavTeamAbrev(){
+        Cursor cursor = db.query(
+                TeamContract.TeamEntry.TABLE_NAME,   // The table to query
+                null,             // The array of columns to return (pass null to get all)
+                null,              // The columns for the WHERE clause
+                null,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                TeamContract.TeamEntry.COLUMN_NAME_ABREV + " DESC"               // The sort order
+        );
+
+        ArrayList<String> favTeamAbrev = new ArrayList<>();
+        while(cursor.moveToNext()) {
+            String teamAbrev = cursor.getString(cursor.getColumnIndexOrThrow(TeamContract.TeamEntry.COLUMN_NAME_ABREV));
+            favTeamAbrev.add(teamAbrev);
+            Log.i(LOG_TAG, "Team abrev = " + teamAbrev);
+
+        }
+        Log.i(LOG_TAG, "Number of row" + favTeamAbrev.size());
+        return favTeamAbrev;
+    }
+
+
 
     public void deleteFilteredTableContent(String... filter){
         // Define 'where' part of query.

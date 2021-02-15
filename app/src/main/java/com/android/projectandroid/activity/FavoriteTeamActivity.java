@@ -3,7 +3,9 @@ package com.android.projectandroid.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 
@@ -14,38 +16,44 @@ import com.android.projectandroid.model.Team;
 
 import java.util.ArrayList;
 
+import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class FavoriteTeamActivity extends AppCompatActivity {
     private ListView list;
     private SwitchCompat switchFavorite;
     private ArrayList<Team> listOfTeam;
+    private ArrayList<String> listOfFavoriteTeam;
     private TeamAdapter adapter;
+
+
+    // todo ajouter un bouton remise à 0 de tous les favorirs -> clean la bdd
+    // todo trouve un autre moyen car pas erreur en fonction de la version
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_team);
 
-        list = (ListView) findViewById(R.id.lvFavoriteTeam);
+        //Find view by ID
+        list = findViewById(R.id.lvFavoriteTeam);
         switchFavorite = findViewById(R.id.switchOnlyFavorite);
 
-        // todo ajouter un bouton remise à 0 de tous les favorirs -> clean la bdd
+        //Get favorite team abbreviation from DB;
+        listOfFavoriteTeam = getFavoriteFromDb();
 
-//        todo trouve un autre moyen car pas erreur en fonction de la version
-        // todo remplacer par une bdd locale
+        //Fill the list of team from constants => favorite if abbreviation in listOfFavoriteTeam
         listOfTeam = new ArrayList<>();
         MAP_LOGO_TEAM.forEach((str, team) -> {
-            listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), team.isFavorites()));
+            listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
         });
 
-
+        //Set the adapter
         adapter = new TeamAdapter(getApplicationContext(), listOfTeam);
         list.setAdapter(adapter);
 
+        //Listener onClickSwitch
         onClickSwitch();
-
-        database();
     }
 
     private void onClickSwitch(){
@@ -56,7 +64,6 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                 listOfTeam.clear();
                 if(isChecked){
                     //        todo trouve un autre moyen car pas erreur en fonction de la version
-
                     MAP_LOGO_TEAM.forEach((str, team) -> {
                         if(team.isFavorites()){
                             listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), team.isFavorites()));
@@ -74,28 +81,17 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         });
     }
 
-    public void database(){
+    public ArrayList<String> getFavoriteFromDb(){
         TeamDml db = new TeamDml(getApplicationContext());
-        db.readAllLine();
+////        todo delete => here for test purpose
+//        db.deleteAllTableContent();
+//
+//        db.addLine("SAS");
+//        db.addLine("GSW");
+//        db.addLine("LAC");
 
-        db.addLine("SAS");
-        db.addLine("ORL");
-        db.addLine("LAC");
 
-        db.readAllLine();
-
-        db.deleteFilteredTableContent("ORL");
-
-        db.readAllLine();
-
-        db.deleteAllTableContent();
-
-        db.readAllLine();
-
-        db.addLine("GSW");
-
-        db.readAllLine();
-
+        return db.getAllFavTeamAbrev();
     }
 
     @Override
