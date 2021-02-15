@@ -21,6 +21,9 @@ public class Team {
         this.favorites = false;
     }
 
+    public void flipFavorite(){
+        this.favorites = !this.favorites;
+    }
 
     public boolean isFavorites() {
         return favorites;

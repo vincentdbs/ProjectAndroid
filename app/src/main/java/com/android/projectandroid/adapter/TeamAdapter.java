@@ -57,6 +57,12 @@ public class TeamAdapter extends BaseAdapter {
         ImageView star = convertView.findViewById(R.id.ivStar);
         TextView tvNameTeam = convertView.findViewById(R.id.tvNameFavoriteTeam);
 
+        star.setImageResource(teams.get(i).isFavorites() ? R.drawable.ic_baseline_star_24 : R.drawable.ic_baseline_star_border_32);
+        star.setOnClickListener(view -> {
+            teams.get(i).flipFavorite();
+            star.setImageResource(teams.get(i).isFavorites() ? R.drawable.ic_baseline_star_24 : R.drawable.ic_baseline_star_border_32);
+        });
+
         logo.setImageResource(teams.get(i).getLogo());
         star.setColorFilter(R.color.black);
         tvNameTeam.setText(teams.get(i).getName());
