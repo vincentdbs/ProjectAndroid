@@ -93,9 +93,12 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                 TeamDml db = new TeamDml(getApplicationContext());
                 db.deleteAllTableContent();
                 listOfTeam.clear();
-                MAP_LOGO_TEAM.forEach((str, team) -> {
-                    listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
-                });
+                if(!switchFavorite.isChecked()){
+                    MAP_LOGO_TEAM.forEach((str, team) -> {
+                        listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
+                    });
+                }
+
 
                 adapter.notifyDataSetChanged();
             }
