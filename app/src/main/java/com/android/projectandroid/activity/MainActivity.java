@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     //todo icon n'apparaissent pas dans les tablayout
     //todo changer logo de l'app
     //use real toolbar component in main activity
+    //todo use arrayadapter instead of baseadapter
 
     private ImageView svgCalendar, svgMenu;
     private TextView tv_date;

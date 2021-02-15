@@ -41,8 +41,8 @@ public class AsyncTaskMatch extends AsyncTask<String, Void, JSONObject> {
             JSONArray matches = jsonObject.getJSONArray("data");
             for (int i = 0; i < matches.length() ; i++) {
                 adapter.add(new Match(
-                        MAP_LOGO_TEAM.get(matches.getJSONObject(i).getJSONObject("home_team").getString("abbreviation")),
-                        MAP_LOGO_TEAM.get(matches.getJSONObject(i).getJSONObject("visitor_team").getString("abbreviation")),
+                        MAP_LOGO_TEAM.get(matches.getJSONObject(i).getJSONObject("home_team").getString("abbreviation")).getLogo(),
+                        MAP_LOGO_TEAM.get(matches.getJSONObject(i).getJSONObject("visitor_team").getString("abbreviation")).getLogo(),
                         matches.getJSONObject(i).getJSONObject("home_team").getString("abbreviation"),
                         matches.getJSONObject(i).getJSONObject("visitor_team").getString("abbreviation"),
                         matches.getJSONObject(i).getString("home_team_score"),
