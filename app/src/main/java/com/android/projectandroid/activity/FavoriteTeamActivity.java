@@ -32,7 +32,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     private Button btnResetFav;
     private ImageView ivBackArrow;
 
-    // todo trouve un autre moyen car pas erreur en fonction de la version sur les map des hashmap
+    //todo recycler view instead of list view
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,6 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                 //Clear the old list of team
                 listOfTeam.clear();
                 if(isChecked){
-                    //        todo trouve un autre moyen car pas erreur en fonction de la version
                     for (Team team : MAP_LOGO_TEAM.values()) {
                         //Only add the favorite team to the list
                         if(listOfFavoriteTeam.contains(team.getAbreviation())){
@@ -82,7 +81,6 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                     }
 
                 }else{
-                //todo trouve un autre moyen car pas erreur en fonction de la version
                     for (Team team : MAP_LOGO_TEAM.values()) {
                         listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
                     }
