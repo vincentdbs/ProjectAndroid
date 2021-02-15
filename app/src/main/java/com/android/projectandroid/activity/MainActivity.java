@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     // todo logo app
     // todo sensor + service + permission
     // todo comments + cleanup
+    // todo gerer le onclick du calendrier => refresh les fragments
 
     private ImageView svgCalendar, svgMenu;
     private TextView tv_date;
