@@ -28,7 +28,8 @@ public class FavoriteTeamActivity extends AppCompatActivity {
 
 
     // todo ajouter un bouton remise à 0 de tous les favorirs -> clean la bdd
-    // todo trouve un autre moyen car pas erreur en fonction de la version
+    // todo trouve un autre moyen car pas erreur en fonction de la version sur les map des hashmap
+    // todo les équipes unstared dans favoris doivent être supprimé ("desafficher") de la liste en plus de la bdd
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,23 +60,25 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     private void onClickSwitch(){
         switchFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // do something, the isChecked will be
-                // true if the switch is in the On position
+                //Get the new list of favorite team
+                listOfFavoriteTeam = getFavoriteFromDb();
+                //Clear the old list of team
                 listOfTeam.clear();
                 if(isChecked){
                     //        todo trouve un autre moyen car pas erreur en fonction de la version
                     MAP_LOGO_TEAM.forEach((str, team) -> {
-                        if(team.isFavorites()){
-                            listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), team.isFavorites()));
+                        //Only add the favorite team to the list
+                        if(listOfFavoriteTeam.contains(team.getAbreviation())){
+                            listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), true));
                         }
                     });
                 }else{
-//        todo trouve un autre moyen car pas erreur en fonction de la version
-
+                //todo trouve un autre moyen car pas erreur en fonction de la version
                     MAP_LOGO_TEAM.forEach((str, team) -> {
-                        listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), team.isFavorites()));
+                        listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
                     });
                 }
+                //Notify the adapter that the dataset changed
                 adapter.notifyDataSetChanged();
             }
         });
@@ -90,14 +93,6 @@ public class FavoriteTeamActivity extends AppCompatActivity {
 //        db.addLine("GSW");
 //        db.addLine("LAC");
 
-
         return db.getAllFavTeamAbrev();
     }
-
-    @Override
-    protected void onDestroy() {
-
-        super.onDestroy();
-    }
-
 }
