@@ -1,5 +1,6 @@
 package com.android.projectandroid.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -102,24 +104,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    private void addOnClickListenerCalendar(){
-//        final Calendar myCalendar = Calendar.getInstance();
-//
-//        DatePickerDialog.OnDateSetListener date = (datePicker, year, month, day) -> {
-//            // Set the calendar to the selected day
-//            myCalendar.set(Calendar.YEAR, year);
-//            myCalendar.set(Calendar.MONTH, month);
-//            myCalendar.set(Calendar.DAY_OF_MONTH, day);
-//            // Set the text view to the selected date
-//            tv_date.setText(year+ "-" + month + "-" + day);
-//        };
-//
-//        svgCalendar.setOnClickListener(view -> new DatePickerDialog(
-//                MainActivity.this, date,
-//                myCalendar.get(Calendar.YEAR),
-//                myCalendar.get(Calendar.MONTH),
-//                myCalendar.get(Calendar.DAY_OF_MONTH)).show());
-//    }
+
 //
 //    private void addOnClickListenerMenu(){
 //        svgMenu.setOnClickListener(new View.OnClickListener() {
@@ -150,5 +135,49 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuItemCalendar:
+                setDateOnClickitem();
+                return true;
+
+            case R.id.menuItemPlayerStat:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            case R.id.menuItemFavoriteTeam:
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+    private void setDateOnClickitem(){
+        // User chose the "Settings" item, show the app settings UI...
+        final Calendar myCalendar = Calendar.getInstance();
+
+        DatePickerDialog.OnDateSetListener date = (datePicker, year, month, day) -> {
+            // Set the calendar to the selected day
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, month);
+            myCalendar.set(Calendar.DAY_OF_MONTH, day);
+            // Set the text view to the selected date
+            tv_date.setText(year+ "-" + month + "-" + day);
+        };
+
+        new DatePickerDialog(
+                MainActivity.this, date,
+                myCalendar.get(Calendar.YEAR),
+                myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 }
