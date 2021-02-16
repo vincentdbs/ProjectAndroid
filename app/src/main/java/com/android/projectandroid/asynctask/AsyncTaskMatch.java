@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
-public class AsyncTaskMatch extends AsyncTask<String, Void, JSONObject> {
+public class AsyncTaskMatch extends AsyncTaskStringJson {
     private MatchListAdapter adapter;
 
     public AsyncTaskMatch(MatchListAdapter adapter) {
@@ -57,34 +57,5 @@ public class AsyncTaskMatch extends AsyncTask<String, Void, JSONObject> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    protected JSONObject doInBackground(String... strings) {
-        Log.i(LOG_TAG, strings[0]);
-        URL url;
-        try {
-            //Replace http by https
-            url = new URL(strings[0]);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-            try {
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                String s = utils.readStream(in);
-
-                //Get the authenticated value
-                JSONObject result = new JSONObject(s);
-                return result;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } finally {
-                urlConnection.disconnect();
-            }
-        } catch (MalformedURLException e) {
-            Log.i(LOG_TAG, e.toString());
-        } catch (IOException e) {
-            Log.i(LOG_TAG, e.toString());
-        }
-        return null;
     }
 }

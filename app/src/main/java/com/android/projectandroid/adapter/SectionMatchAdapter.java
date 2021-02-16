@@ -26,7 +26,7 @@ public class SectionMatchAdapter extends FragmentPagerAdapter {
     }
 
     public SectionMatchAdapter(FragmentManager fm) {
-        super(fm);
+        super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 
     @Override

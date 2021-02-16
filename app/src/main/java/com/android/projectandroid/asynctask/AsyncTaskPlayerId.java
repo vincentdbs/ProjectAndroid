@@ -23,7 +23,7 @@ import java.net.URL;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
-public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
+public class AsyncTaskPlayerId extends AsyncTaskStringJson {
     private TextView[] textViews;
     private String firstName, lastName;
     private ImageView ivTeam;
@@ -35,35 +35,6 @@ public class AsyncTaskPlayerId extends AsyncTask<String, Void, JSONObject> {
         this.lastName = lastName.toLowerCase();
         this.ivTeam = ivTeam;
         this.context = context;
-    }
-
-
-    @Override
-    protected JSONObject doInBackground(String... strings) {
-        URL url;
-        try {
-            //Request the api to get all the player that has the same last name that the user want
-            // Cant search by first and last time at the same time
-            url = new URL(strings[0]);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-
-            try {
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                String s = utils.readStream(in);
-
-                //Get the authenticated value
-                return new JSONObject(s);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } finally {
-                urlConnection.disconnect();
-            }
-        } catch (MalformedURLException e) {
-            Log.i(LOG_TAG, e.toString());
-        } catch (IOException e) {
-            Log.i(LOG_TAG, e.toString());
-        }
-        return null;
     }
 
     @Override
