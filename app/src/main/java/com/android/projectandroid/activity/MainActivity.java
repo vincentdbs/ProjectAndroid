@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     // todo sensor + service + permission
     // todo centrer element card match
 
-    // todo comments + cleanup
+    // todo comments + cleanup + git
 
     private TextView tv_date;
     private ViewPager vpMatch;
