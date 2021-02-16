@@ -28,7 +28,6 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     // todo logo app
     // todo sensor + service + permission
-    // todo gerer le onclick du calendrier => refresh les fragments
 
     // todo comments + cleanup
 
@@ -120,10 +119,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-//            case R.id.menuItemCalendar:
-////                setDateOnClickitem();
-//                return true;
-
             case R.id.menuItemPlayerStat:
                 Intent intentPlayer = new Intent(this, PlayerStatsActivity.class);
                 startActivity(intentPlayer);
@@ -138,27 +133,6 @@ public class MainActivity extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
-    }
-
-    private void setDateOnClickitem(){
-        // User chose the "Settings" item, show the app settings UI...
-        final Calendar myCalendar = Calendar.getInstance();
-
-        DatePickerDialog.OnDateSetListener date = (datePicker, year, month, day) -> {
-            // Set the calendar to the selected day
-            myCalendar.set(Calendar.YEAR, year);
-            myCalendar.set(Calendar.MONTH, month);
-            myCalendar.set(Calendar.DAY_OF_MONTH, day);
-            // Set the text view to the selected date
-            tv_date.setText(year+ "-" + month + "-" + day);
-        };
-
-        new DatePickerDialog(
-                MainActivity.this, date,
-                myCalendar.get(Calendar.YEAR),
-                myCalendar.get(Calendar.MONTH),
-                myCalendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 }

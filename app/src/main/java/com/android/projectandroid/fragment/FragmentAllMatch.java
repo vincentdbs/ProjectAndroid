@@ -29,13 +29,14 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class FragmentAllMatch extends Fragment {
     private MatchListAdapter adapter;
+    private TextView calendar;
+    private ListView list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
-
 
     @Nullable
     @Override
@@ -47,20 +48,22 @@ public class FragmentAllMatch extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //Get the view
+        calendar = getActivity().findViewById(R.id.date);
         adapter = new MatchListAdapter(getContext());
-        ListView list = (ListView) getActivity().findViewById(R.id.lvAllMatch);
+        list = (ListView) getActivity().findViewById(R.id.lvAllMatch);
         list.setAdapter(adapter);
 
+        //Call asynctask
         String param = utils.getNowDate();
-        new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?start_date=" + param+ "&end_date=" + param);
+        callAsyncTask("start_date=" + param+ "&end_date=" + param);
     }
 
     @Override
     public void onResume() {
+        //When the fragment is seen by the user
         super.onResume();
-        Log.i(LOG_TAG, "here -----------------------------");
-        TextView tv_date = getActivity().findViewById(R.id.date);
-        new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?start_date=" + tv_date.getText().toString() + "&end_date=" + tv_date.getText().toString());
+        callAsyncTask("start_date=" + calendar.getText().toString() + "&end_date=" + calendar.getText().toString());
     }
 
     @Override
@@ -75,6 +78,10 @@ public class FragmentAllMatch extends Fragment {
         }
     }
 
+    private void callAsyncTask(String param){
+        new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?" + param);
+    }
+
     private void setDateOnClickitem(){
         // User chose the "Settings" item, show the app settings UI...
         final Calendar myCalendar = Calendar.getInstance();
@@ -82,12 +89,11 @@ public class FragmentAllMatch extends Fragment {
         DatePickerDialog.OnDateSetListener date = (datePicker, year, month, day) -> {
             // Set the calendar to the selected day
             myCalendar.set(Calendar.YEAR, year);
-            myCalendar.set(Calendar.MONTH, month);
+            myCalendar.set(Calendar.MONTH + 1, month);
             myCalendar.set(Calendar.DAY_OF_MONTH, day);
             // Set the text view to the selected date
-            TextView tv_date = getActivity().findViewById(R.id.date);
-            tv_date.setText(year+ "-" + month + "-" + day);
-            new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?start_date=" + tv_date.getText().toString() + "&end_date=" + tv_date.getText().toString());
+            calendar.setText(year+ "-" + (month+1) + "-" + day);
+            callAsyncTask("start_date=" + calendar.getText().toString() + "&end_date=" + calendar.getText().toString());
         };
 
         new DatePickerDialog(
