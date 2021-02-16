@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuItemCalendar"
+        android:icon="@drawable/ic_baseline_calendar_today_32"
+        app:showAsAction="always"
+        android:title="Calendar"/>
+
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/menuItemPlayerStat"
+        android:icon="@drawable/ic_baseline_star_24"
+        android:title="Player stats" />
+
+    <!-- Settings, should always be in the overflow -->
+    <item android:id="@+id/menuItemFavoriteTeam"
+        android:title="Favorite team"
+        app:showAsAction="never"/>
+</menu>
