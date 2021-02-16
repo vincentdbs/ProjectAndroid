@@ -28,6 +28,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     // todo logo app
     // todo sensor + service + permission
+    // todo centrer element card match
 
     // todo comments + cleanup
 
