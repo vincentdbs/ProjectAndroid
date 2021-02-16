@@ -145,12 +145,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menuItemPlayerStat:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                Intent intentPlayer = new Intent(this, PlayerStatsActivity.class);
+                startActivity(intentPlayer);
                 return true;
 
             case R.id.menuItemFavoriteTeam:
-
+                Intent intentFavorite = new Intent(this,  FavoriteTeamActivity.class);
+                startActivity(intentFavorite);
                 return true;
 
             default:
