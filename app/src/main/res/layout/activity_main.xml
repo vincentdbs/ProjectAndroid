@@ -21,6 +21,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
         <TextView
+            android:textSize="16sp"
             android:id="@+id/date"
             android:fontFamily="@font/ttlakes"
             android:layout_width="wrap_content"

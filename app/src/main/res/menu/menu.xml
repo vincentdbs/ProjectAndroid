@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menuItemCalendar"
-        android:icon="@drawable/ic_baseline_calendar_today_32"
+        android:icon="@drawable/ic_baseline_calendar_today_20"
         app:showAsAction="always"
         android:title="Calendar"/>
 

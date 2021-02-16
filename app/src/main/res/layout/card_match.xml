@@ -29,57 +29,53 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="TextView" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layoutScore"
+    <TextView
+        android:id="@+id/scoreTeamDom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        android:gravity="center"
+        android:fontFamily="@font/superstar"
+        android:text="112"
+        android:textColor="@color/black"
+        android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/layoutTeamExt"
-        app:layout_constraintStart_toEndOf="@id/layoutTeamDom"
+        app:layout_constraintStart_toEndOf="@+id/layoutTeamDom"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661">
+        android:layout_marginStart="24dp"/>
 
-        <TextView
-            android:id="@+id/scoreTeamDom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/superstar"
-            android:text="112"
-            android:textColor="@color/black"
-            android:textSize="32dp" />
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/ttlakes"
-            android:text="Finished"
-            android:textColor="@color/black"
-            android:textSize="16dp" />
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/ttlakes"
+        android:text="Finished"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/scoreTeamExt"
+        app:layout_constraintStart_toEndOf="@+id/scoreTeamDom"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/scoreTeamExt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/superstar"
-            android:text="112"
-            android:textColor="@color/black"
-            android:textSize="32dp" />
-    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/scoreTeamExt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/superstar"
+        android:text="112"
+        android:textColor="@color/black"
+        android:textSize="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/layoutTeamExt"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="24dp"/>
 
     <LinearLayout
         android:id="@+id/layoutTeamExt"
@@ -103,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="TextView" />
     </LinearLayout>
 
