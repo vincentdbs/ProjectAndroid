@@ -26,16 +26,11 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-//    TODO faire une classe asynctask mére et heritahe pour celle construite par moi avec overide de la methode on postexecute
-    //todo changer logo de l'app
-    //todo use real toolbar component in main activity
-    //todo use arrayadapter instead of baseadapter
-    //todo link favorite team activity dans le menu haut droit
     // todo logo app
     // todo sensor + service + permission
+    // todo gerer le onclick du calendrier => refresh les fragments
 
     // todo comments + cleanup
-    // todo gerer le onclick du calendrier => refresh les fragments
 
     private TextView tv_date;
     private ViewPager vpMatch;
@@ -65,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
         tabSelectedListener(tabLayout);
 
         actionBar();
-
-//        addOnClickListenerCalendar();
-//        addOnClickListenerMenu();
     }
 
     private void setupTabIcons(TabLayout tabLayout) {
@@ -103,18 +95,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-//
-//    private void addOnClickListenerMenu(){
-//        svgMenu.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), FavoriteTeamActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
 
     private void setupViewPager(ViewPager viewPager) {
         SectionMatchAdapter adapter = new SectionMatchAdapter(getSupportFragmentManager());
