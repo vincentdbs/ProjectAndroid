@@ -120,9 +120,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menuItemCalendar:
-                setDateOnClickitem();
-                return true;
+//            case R.id.menuItemCalendar:
+////                setDateOnClickitem();
+//                return true;
 
             case R.id.menuItemPlayerStat:
                 Intent intentPlayer = new Intent(this, PlayerStatsActivity.class);
