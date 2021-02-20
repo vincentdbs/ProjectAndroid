@@ -21,7 +21,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="logo-team-dom" />
+            android:contentDescription="@string/logo_team_dom" />
 
         <TextView
             android:fontFamily="@font/ttlakes"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="8dp"
-            android:text="TextView" />
+            android:text="@string/team" />
     </LinearLayout>
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/superstar"
-        android:text="112"
+        android:text="@string/three_dots"
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fontFamily="@font/ttlakes"
-        android:text="Finished"
+        android:text="@string/finished"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fontFamily="@font/superstar"
-        android:text="112"
+        android:text="@string/three_dots"
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +92,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="logo-team-ext" />
+            android:contentDescription="@string/logo_team_ext" />
 
         <TextView
             android:fontFamily="@font/ttlakes"
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="8dp"
-            android:text="TextView" />
+            android:text="@string/team" />
     </LinearLayout>
 
 

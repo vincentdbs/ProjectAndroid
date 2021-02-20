@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="2021/02/25"/>
+            android:text="@string/date_template"/>
 
     </androidx.appcompat.widget.Toolbar>
 

@@ -21,7 +21,7 @@
             android:layout_marginLeft="12dp"
             app:srcCompat="@drawable/ic_arrow_left_447"
             app:tint="@color/black"
-            android:contentDescription="arrow-back" />
+            android:contentDescription="@string/arrow_back" />
 
         <SearchView
             android:id="@+id/svSearchPlayer"
@@ -63,7 +63,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakesbold"
-                   android:text="..."
+                   android:text="@string/three_dots"
                    android:textSize="32sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerFirstName"/>
@@ -72,7 +72,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakesbold"
-                   android:text="..."
+                   android:text="@string/three_dots"
                    android:textSize="32sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerName" />
@@ -81,7 +81,7 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakes"
-                   android:text="..."
+                   android:text="@string/three_dots"
                    android:textSize="24sp"
                    android:textColor="@color/black"
                    android:id="@+id/tv_playerTeam" />
@@ -90,27 +90,13 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:fontFamily="@font/ttlakes"
-                   android:text="..."
+                   android:text="@string/three_dots"
                    android:textSize="24sp"
                    android:textColor="@color/black"
 
                    android:id="@+id/tv_playerPost" />
 
            </LinearLayout>
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_playerNumber"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="32dp"-->
-<!--                android:fontFamily="@font/superstar"-->
-<!--                android:text="9"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="104sp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintVertical_bias="0.28" />-->
 
                 <ImageView
                     android:id="@+id/logoTeam"
@@ -122,7 +108,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.28"
-                    android:contentDescription="logo-team" />
+                    android:contentDescription="@string/logo_team" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -152,7 +138,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="..."
+                        android:text="@string/three_dots"
                         android:id="@+id/tv_points"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
@@ -163,7 +149,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Points"
+                        android:text="@string/points"
                         android:id="@+id/tv_points_des"
                         android:gravity="center"
                         android:textSize="24sp"
@@ -181,7 +167,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="..."
+                        android:text="@string/three_dots"
                         android:id="@+id/tv_assists"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
@@ -192,7 +178,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Assists"
+                        android:text="@string/assists"
                         android:id="@+id/tv_assists_des"
                         android:gravity="center"
                         android:textSize="24sp"
@@ -218,7 +204,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="..."
+                        android:text="@string/three_dots"
                         android:id="@+id/tv_reboundO"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
@@ -229,7 +215,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Rebounds O."
+                        android:text="@string/rebounds_o"
                         android:id="@+id/tv_reboundO_des"
                         android:gravity="center"
                         android:textSize="24sp"
@@ -247,7 +233,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="..."
+                        android:text="@string/three_dots"
                         android:id="@+id/tv_reboundD"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
@@ -258,7 +244,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Rebounds D."
+                        android:text="@string/rebounds_d"
                         android:id="@+id/tv_reboundD_des"
                         android:gravity="center"
                         android:textSize="24sp"
@@ -283,7 +269,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="..."
+                        android:text="@string/three_dots"
                         android:id="@+id/tv_blocks"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
@@ -294,7 +280,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Blocks"
+                        android:text="@string/blocks"
                         android:id="@+id/tv_blocks_des"
                         android:gravity="center"
                         android:textSize="24sp"
@@ -312,7 +298,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="..."
+                        android:text="@string/three_dots"
                         android:id="@+id/tv_steals"
                         android:gravity="center"
                         android:layout_marginBottom="12dp"
@@ -323,7 +309,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Steals"
+                        android:text="@string/steals"
                         android:id="@+id/tv_steals_des"
                         android:gravity="center"
                         android:textSize="24sp"

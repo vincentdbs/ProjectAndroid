@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="12dp"
         android:layout_marginTop="12dp"
-        android:contentDescription="logo-team" />
+        android:contentDescription="@string/logo_team" />
 
     <TextView
         android:id="@+id/tvNameFavoriteTeam"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/ttlakes"
         android:gravity="center"
-        android:text="TextView"
+        android:text="@string/team"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,8 +39,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="logo-star" />
-
-
+        android:contentDescription="@string/empty_star" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
