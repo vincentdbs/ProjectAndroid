@@ -1,36 +1,36 @@
 package com.android.projectandroid.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.DatePickerDialog;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.SectionMatchAdapter;
 import com.android.projectandroid.fragment.FragmentAllMatch;
 import com.android.projectandroid.fragment.FragmentFavoritesMatch;
+import com.android.projectandroid.utlis.AlarmReceiver;
 import com.android.projectandroid.utlis.utils;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     // todo logo app
-    // todo sensor + service + permission
-    // todo centrer element card match
-
+    // todo readme
     // todo comments + cleanup + git
+    // todo sensor + service + permission
+
 
     private TextView tv_date;
     private ViewPager vpMatch;
@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         tabSelectedListener(tabLayout);
 
         actionBar();
+
+        setUpAlarm();
     }
 
     private void setupTabIcons(TabLayout tabLayout) {
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
-    public void actionBar(){
+    private void actionBar(){
         Toolbar myToolbar = (Toolbar) findViewById(R.id.layoutNavbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -128,6 +130,26 @@ public class MainActivity extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void setUpAlarm() {
+        //Set the time of the alarm
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 8);
+        calendar.set(Calendar.MINUTE, 30);
+        calendar.set(Calendar.SECOND, 0);
+
+        if (calendar.getTime().compareTo(new Date()) < 0)
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+        //The class to wake up when the time arrive
+        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        if (alarmManager != null) {
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
         }
     }
 }
