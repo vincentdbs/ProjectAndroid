@@ -54,25 +54,15 @@ public class FragmentFavoritesMatch extends Fragment{
         list.setAdapter(adapter);
 
         String paramDate = utils.getNowDate();
-        callAsyncTask("start_date=" + paramDate+ "&end_date=" + paramDate + getParamArrayOfApiTeamId());
+        callAsyncTask("start_date=" + paramDate+ "&end_date=" + paramDate + utils.getParamArrayOfApiTeamId(getContext()));
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        callAsyncTask("start_date=" + calendar.getText().toString() + "&end_date=" + calendar.getText().toString() + getParamArrayOfApiTeamId());
+        callAsyncTask("start_date=" + calendar.getText().toString() + "&end_date=" + calendar.getText().toString() + utils.getParamArrayOfApiTeamId(getContext()));
     }
 
-    private String getParamArrayOfApiTeamId(){
-        TeamDml db = new TeamDml(getContext());
-        ArrayList<String> listOfFav = db.getAllFavTeamAbrev();
-        String param = "";
-        for (String str: listOfFav) {
-            param += "&team_ids[]=" + MAP_LOGO_TEAM.get(str).getApiId();
-        }
-
-        return param.isEmpty() ? "&team_ids[]=0" : param;
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -97,7 +87,7 @@ public class FragmentFavoritesMatch extends Fragment{
             myCalendar.set(Calendar.DAY_OF_MONTH, day);
             // Set the text view to the selected date
             calendar.setText(year+ "-" + (month+1) + "-" + day);
-            callAsyncTask("start_date=" + calendar.getText().toString() + "&end_date=" + calendar.getText().toString() + getParamArrayOfApiTeamId());
+            callAsyncTask("start_date=" + calendar.getText().toString() + "&end_date=" + calendar.getText().toString() + utils.getParamArrayOfApiTeamId(getContext()));
         };
 
         new DatePickerDialog(

@@ -17,11 +17,13 @@ import com.android.projectandroid.adapter.TeamAdapter;
 import com.android.projectandroid.database.TeamDml;
 import com.android.projectandroid.model.Team;
 import com.android.projectandroid.utlis.constants;
+import com.android.projectandroid.utlis.utils;
 
 import java.util.ArrayList;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
+import static com.android.projectandroid.utlis.utils.getFavoriteFromDb;
 
 public class FavoriteTeamActivity extends AppCompatActivity {
     private ListView list;
@@ -48,7 +50,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         ivBackArrow.setOnClickListener(v -> finish());
 
         //Get favorite team abbreviation from DB;
-        listOfFavoriteTeam = getFavoriteFromDb();
+        listOfFavoriteTeam = getFavoriteFromDb(getApplicationContext());
 
         //Fill the list of team from constants => favorite if abbreviation in listOfFavoriteTeam
         listOfTeam = new ArrayList<>();
@@ -69,7 +71,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         switchFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 //Get the new list of favorite team
-                listOfFavoriteTeam = getFavoriteFromDb();
+                listOfFavoriteTeam = getFavoriteFromDb(getApplicationContext());
                 //Clear the old list of team
                 listOfTeam.clear();
                 if(isChecked){
@@ -107,17 +109,5 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
-    }
-
-    public ArrayList<String> getFavoriteFromDb(){
-        TeamDml db = new TeamDml(getApplicationContext());
-////        todo delete => here for test purpose
-//        db.deleteAllTableContent();
-//
-//        db.addLine("SAS");
-//        db.addLine("GSW");
-//        db.addLine("LAC");
-
-        return db.getAllFavTeamAbrev();
     }
 }
