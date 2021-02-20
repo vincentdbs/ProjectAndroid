@@ -23,7 +23,6 @@ import java.util.Calendar;
 public class FragmentAllMatch extends Fragment {
     private MatchListAdapter adapter;
     private TextView calendar;
-    private ListView list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +43,7 @@ public class FragmentAllMatch extends Fragment {
         //Get the view
         calendar = getActivity().findViewById(R.id.date);
         adapter = new MatchListAdapter(getContext());
-        list = (ListView) getActivity().findViewById(R.id.lvAllMatch);
+        ListView list = (ListView) getActivity().findViewById(R.id.lvAllMatch);
         list.setAdapter(adapter);
 
         //Call asynctask

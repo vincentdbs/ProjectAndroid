@@ -19,13 +19,11 @@ import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 import static com.android.projectandroid.utlis.utils.getFavoriteFromDb;
 
 public class FavoriteTeamActivity extends AppCompatActivity {
-    private ListView list;
     private SwitchCompat switchFavorite;
     private ArrayList<Team> listOfTeam;
     private ArrayList<String> listOfFavoriteTeam;
     private TeamAdapter adapter;
     private Button btnResetFav;
-    private ImageView ivBackArrow;
 
     //todo recycler view instead of list view
 
@@ -35,10 +33,10 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorite_team);
 
         //Find view by ID
-        list = findViewById(R.id.lvFavoriteTeam);
+        ListView list = findViewById(R.id.lvFavoriteTeam);
         switchFavorite = findViewById(R.id.switchOnlyFavorite);
         btnResetFav = findViewById(R.id.btnResetFav);
-        ivBackArrow = findViewById(R.id.svgArrowBackTeam);
+        ImageView ivBackArrow = findViewById(R.id.svgArrowBackTeam);
 
         ivBackArrow.setOnClickListener(v -> finish());
 

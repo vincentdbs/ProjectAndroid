@@ -32,18 +32,13 @@ public class MainActivity extends AppCompatActivity {
     // todo sensor + service + permission
     // todo recycler view
 
-
-    private TextView tv_date;
-    private ViewPager vpMatch;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_date = findViewById(R.id.date);
-        vpMatch = findViewById(R.id.viewPagerMatch);
+        TextView tv_date = findViewById(R.id.date);
+        ViewPager vpMatch = findViewById(R.id.viewPagerMatch);
 
         tv_date.setText(utils.getNowDate());
 

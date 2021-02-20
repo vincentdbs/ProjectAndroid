@@ -22,7 +22,6 @@ import java.util.Calendar;
 
 public class FragmentFavoritesMatch extends Fragment{
     private MatchListAdapter adapter;
-    private ListView list;
     private TextView calendar;
 
     @Override
@@ -42,7 +41,7 @@ public class FragmentFavoritesMatch extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
         calendar = getActivity().findViewById(R.id.date);
-        list =  getActivity().findViewById(R.id.lvFavoritesMatch);
+        ListView list = getActivity().findViewById(R.id.lvFavoritesMatch);
         adapter = new MatchListAdapter(getContext());
         list.setAdapter(adapter);
 

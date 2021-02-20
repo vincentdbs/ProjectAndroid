@@ -15,7 +15,6 @@ import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class PlayerStatsActivity extends AppCompatActivity {
-    private TextView tvFirstName, tvLastName, tvTeam, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
     private TextView[] textViews;
     private ImageView ivTeam;
     private SearchView svSearchPlayer;
@@ -41,16 +40,16 @@ public class PlayerStatsActivity extends AppCompatActivity {
         //Svg
         svgArrowBack = findViewById(R.id.svgArrowBack);
         //Text view
-        tvFirstName = findViewById(R.id.tv_playerFirstName);
-        tvLastName = findViewById(R.id.tv_playerName);
-        tvPoints = findViewById(R.id.tv_points);
-        tvAssists = findViewById(R.id.tv_assists);
-        tvReboundsO = findViewById(R.id.tv_reboundO);
-        tvReboundsD = findViewById(R.id.tv_reboundD);
-        tvBlocks = findViewById(R.id.tv_blocks);
-        tvSteals = findViewById(R.id.tv_steals);
-        tvTeam = findViewById(R.id.tv_playerTeam);
-        tvPosition = findViewById(R.id.tv_playerPost);
+        TextView tvFirstName = findViewById(R.id.tv_playerFirstName);
+        TextView tvLastName = findViewById(R.id.tv_playerName);
+        TextView tvPoints = findViewById(R.id.tv_points);
+        TextView tvAssists = findViewById(R.id.tv_assists);
+        TextView tvReboundsO = findViewById(R.id.tv_reboundO);
+        TextView tvReboundsD = findViewById(R.id.tv_reboundD);
+        TextView tvBlocks = findViewById(R.id.tv_blocks);
+        TextView tvSteals = findViewById(R.id.tv_steals);
+        TextView tvTeam = findViewById(R.id.tv_playerTeam);
+        TextView tvPosition = findViewById(R.id.tv_playerPost);
         textViews = new TextView[]{tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals, tvTeam, tvPosition};
     }
 
