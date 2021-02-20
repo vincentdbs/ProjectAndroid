@@ -45,12 +45,13 @@ public class NotificationHelper {
 
         StringBuilder contentNotification = new StringBuilder();
         for (Match match: listOfMatch) {
-            contentNotification.append(match.getNameTeamDom()).append(" : ").append(match.getScoreTeamDom()).append(" - ").append(match.getScoreTeamExt()).append(" : ").append(match.getNameTeamExt()).append(", ");
+            contentNotification.append(match.getNameTeamDom()).append(" : ").append(match.getScoreTeamDom()).append(" - ").append(match.getScoreTeamExt()).append(" : ").append(match.getNameTeamExt()).append(" | ");
         }
 
         Log.i(LOG_TAG, contentNotification.toString());
 
-        mBuilder.setContentTitle("Recap de la nuit")
+        mBuilder.setContentTitle("Recap of the night")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(contentNotification.toString()))
                 .setContentText(contentNotification.toString())
                 .setAutoCancel(true)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)

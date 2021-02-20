@@ -190,11 +190,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void myAlarm() {
         //Set the time of the alarm
-        // todo set à 8h00
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 18);
-        calendar.set(Calendar.MINUTE, 5);
-        calendar.set(Calendar.SECOND, 10);
+        calendar.set(Calendar.HOUR_OF_DAY, 8);
+        calendar.set(Calendar.MINUTE, 30);
+        calendar.set(Calendar.SECOND, 0);
 
         if (calendar.getTime().compareTo(new Date()) < 0)
             calendar.add(Calendar.DAY_OF_MONTH, 1);
