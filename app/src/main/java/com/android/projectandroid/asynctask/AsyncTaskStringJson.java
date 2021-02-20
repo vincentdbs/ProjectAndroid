@@ -35,8 +35,7 @@ public class AsyncTaskStringJson extends AsyncTask<String, Void, JSONObject> {
                 String s = utils.readStream(in);
 
                 //Get the authenticated value
-                JSONObject result = new JSONObject(s);
-                return result;
+                return new JSONObject(s);
             } catch (JSONException e) {
                 e.printStackTrace();
             } finally {
