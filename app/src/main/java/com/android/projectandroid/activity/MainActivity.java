@@ -8,6 +8,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -26,18 +27,24 @@ import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.SectionMatchAdapter;
 import com.android.projectandroid.fragment.FragmentAllMatch;
 import com.android.projectandroid.fragment.FragmentFavoritesMatch;
+import com.android.projectandroid.utlis.AlarmReceiver;
 import com.android.projectandroid.utlis.utils;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     // todo logo app
-    // todo sensor + service + permission
 
     // todo comments + cleanup + git
 
 //    https://android.jlelse.eu/schedule-tasks-and-jobs-intelligently-in-android-e0b0d9201777
+//https://code.tutsplus.com/tutorials/android-fundamentals-scheduling-recurring-tasks--mobile-5788
+//https://stackoverflow.com/questions/33055129/how-to-show-a-notification-everyday-at-a-certain-time-even-when-the-app-is-close
+// todo sensor + service + permission
+    //https://www.tutorialspoint.com/how-to-create-everyday-notifications-at-certain-time-in-android
+    // cours
 
     private TextView tv_date;
     private ViewPager vpMatch;
@@ -61,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         tabSelectedListener(tabLayout);
 
         actionBar();
+
+        myAlarm();
 
         //todo delete
         createNotificationChannel();
@@ -176,6 +185,27 @@ public class MainActivity extends AppCompatActivity {
             // or other notification behaviors after this
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void myAlarm() {
+        //Set the time of the alarm
+        // todo set à 8h00
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 16);
+        calendar.set(Calendar.MINUTE, 26);
+        calendar.set(Calendar.SECOND, 0);
+
+        if (calendar.getTime().compareTo(new Date()) < 0)
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+        //The class to wake up when the time arrive
+        Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        if (alarmManager != null) {
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
         }
     }
 }
