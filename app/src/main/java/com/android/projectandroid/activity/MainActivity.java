@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     // todo readme
     // todo comments + cleanup + git
     // todo sensor + service + permission
+    // todo recycler view
 
 
     private TextView tv_date;

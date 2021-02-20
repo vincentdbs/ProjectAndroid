@@ -81,6 +81,8 @@ public class TeamDml {
 
         }
         Log.i(LOG_TAG, "Number of row" + favTeamAbrev.size());
+
+        cursor.close();
         return favTeamAbrev;
     }
 
