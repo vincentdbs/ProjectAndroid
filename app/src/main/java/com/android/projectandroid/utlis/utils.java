@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -43,6 +44,12 @@ public class utils {
 
     public static String getNowDate(){
         Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH)+1) + "-" + cal.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public static String getYesterdayDate(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -1);
         return cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH)+1) + "-" + cal.get(Calendar.DAY_OF_MONTH);
     }
 

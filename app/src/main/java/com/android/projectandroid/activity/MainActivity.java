@@ -36,7 +36,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     // todo logo app
-
+    // todo readme
     // todo comments + cleanup + git
 
 //    https://android.jlelse.eu/schedule-tasks-and-jobs-intelligently-in-android-e0b0d9201777
@@ -192,9 +192,9 @@ public class MainActivity extends AppCompatActivity {
         //Set the time of the alarm
         // todo set à 8h00
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 16);
-        calendar.set(Calendar.MINUTE, 26);
-        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 18);
+        calendar.set(Calendar.MINUTE, 5);
+        calendar.set(Calendar.SECOND, 10);
 
         if (calendar.getTime().compareTo(new Date()) < 0)
             calendar.add(Calendar.DAY_OF_MONTH, 1);

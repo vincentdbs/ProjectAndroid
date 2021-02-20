@@ -13,35 +13,46 @@ import androidx.core.app.NotificationCompat;
 
 import com.android.projectandroid.R;
 import com.android.projectandroid.activity.MainActivity;
+import com.android.projectandroid.model.Match;
+
+import java.util.ArrayList;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
-class NotificationHelper {
-
+public class NotificationHelper {
+    private ArrayList<Match> listOfMatch;
     private Context mContext;
     private static final String NOTIFICATION_CHANNEL_ID = "10001";
 
-    NotificationHelper(Context context) {
+    public NotificationHelper(Context context, ArrayList<Match> list) {
         mContext = context;
+        listOfMatch = list;
     }
 
-    void createNotification()
-    {
+    public void createNotification() {
         Log.i(LOG_TAG, "create Notification");
-        Intent intent = new Intent(mContext , MainActivity.class);
 
+        Intent intent = new Intent(mContext , MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         PendingIntent resultPendingIntent = PendingIntent.getActivity(mContext,
-                0 /* Request code */, intent,
+                0 , intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext, NOTIFICATION_CHANNEL_ID);
-        mBuilder.setSmallIcon(R.drawable.ic_baseline_star_border_32);
-        mBuilder.setContentTitle("Title")
-                .setContentText("Content")
-                .setAutoCancel(false)
+        mBuilder.setSmallIcon(R.drawable.ic_baseline_sports_basketball_32);
+
+        StringBuilder contentNotification = new StringBuilder();
+        for (Match match: listOfMatch) {
+            contentNotification.append(match.getNameTeamDom()).append(" : ").append(match.getScoreTeamDom()).append(" - ").append(match.getScoreTeamExt()).append(" : ").append(match.getNameTeamExt()).append(", ");
+        }
+
+        Log.i(LOG_TAG, contentNotification.toString());
+
+        mBuilder.setContentTitle("Recap de la nuit")
+                .setContentText(contentNotification.toString())
+                .setAutoCancel(true)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                 .setContentIntent(resultPendingIntent);
 
@@ -49,9 +60,10 @@ class NotificationHelper {
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
         {
-            int importance = NotificationManager.IMPORTANCE_HIGH;
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NOTIFICATION_CHANNEL_NAME", importance);
             notificationChannel.setDescription("description");
+
             assert mNotificationManager != null;
             mBuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
             mNotificationManager.createNotificationChannel(notificationChannel);
