@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.android.projectandroid.utlis.utils;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

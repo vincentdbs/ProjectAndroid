@@ -1,28 +1,13 @@
 package com.android.projectandroid.asynctask;
 
-import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Adapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.MatchListAdapter;
 import com.android.projectandroid.model.Match;
-import com.android.projectandroid.utlis.utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;

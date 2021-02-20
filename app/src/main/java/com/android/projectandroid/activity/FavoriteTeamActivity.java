@@ -3,9 +3,7 @@ package com.android.projectandroid.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -16,12 +14,9 @@ import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.TeamAdapter;
 import com.android.projectandroid.database.TeamDml;
 import com.android.projectandroid.model.Team;
-import com.android.projectandroid.utlis.constants;
-import com.android.projectandroid.utlis.utils;
 
 import java.util.ArrayList;
 
-import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 import static com.android.projectandroid.utlis.utils.getFavoriteFromDb;
 

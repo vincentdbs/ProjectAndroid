@@ -4,13 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
-import android.provider.BaseColumns;
 import android.util.Log;
-
-import com.android.projectandroid.R;
-import com.android.projectandroid.adapter.TeamAdapter;
-import com.android.projectandroid.model.Team;
 
 import java.util.ArrayList;
 import java.util.List;

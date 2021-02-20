@@ -1,6 +1,5 @@
 package com.android.projectandroid.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,13 +11,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.projectandroid.R;
-import com.android.projectandroid.adapter.SectionMatchAdapter;
 import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
-import com.android.projectandroid.fragment.FragmentAllMatch;
-import com.android.projectandroid.fragment.FragmentFavoritesMatch;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
-import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class PlayerStatsActivity extends AppCompatActivity {
     private TextView tvFirstName, tvLastName, tvTeam, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
