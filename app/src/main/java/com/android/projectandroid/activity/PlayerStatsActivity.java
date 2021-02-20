@@ -1,9 +1,7 @@
 package com.android.projectandroid.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -12,20 +10,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.projectandroid.R;
-import com.android.projectandroid.adapter.SectionMatchAdapter;
 import com.android.projectandroid.asynctask.AsyncTaskPlayerId;
-import com.android.projectandroid.fragment.FragmentAllMatch;
-import com.android.projectandroid.fragment.FragmentFavoritesMatch;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
-import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class PlayerStatsActivity extends AppCompatActivity {
-    private TextView tvFirstName, tvLastName, tvTeam, tvPoints, tvAssists, tvReboundsO, tvReboundsD, tvSteals, tvBlocks, tvPosition;
     private TextView[] textViews;
     private ImageView ivTeam;
     private SearchView svSearchPlayer;
-    private String playerToSearch;
     private ImageView svgArrowBack;
 
 
@@ -47,16 +39,16 @@ public class PlayerStatsActivity extends AppCompatActivity {
         //Svg
         svgArrowBack = findViewById(R.id.svgArrowBack);
         //Text view
-        tvFirstName = findViewById(R.id.tv_playerFirstName);
-        tvLastName = findViewById(R.id.tv_playerName);
-        tvPoints = findViewById(R.id.tv_points);
-        tvAssists = findViewById(R.id.tv_assists);
-        tvReboundsO = findViewById(R.id.tv_reboundO);
-        tvReboundsD = findViewById(R.id.tv_reboundD);
-        tvBlocks = findViewById(R.id.tv_blocks);
-        tvSteals = findViewById(R.id.tv_steals);
-        tvTeam = findViewById(R.id.tv_playerTeam);
-        tvPosition = findViewById(R.id.tv_playerPost);
+        TextView tvFirstName = findViewById(R.id.tv_playerFirstName);
+        TextView tvLastName = findViewById(R.id.tv_playerName);
+        TextView tvPoints = findViewById(R.id.tv_points);
+        TextView tvAssists = findViewById(R.id.tv_assists);
+        TextView tvReboundsO = findViewById(R.id.tv_reboundO);
+        TextView tvReboundsD = findViewById(R.id.tv_reboundD);
+        TextView tvBlocks = findViewById(R.id.tv_blocks);
+        TextView tvSteals = findViewById(R.id.tv_steals);
+        TextView tvTeam = findViewById(R.id.tv_playerTeam);
+        TextView tvPosition = findViewById(R.id.tv_playerPost);
         textViews = new TextView[]{tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals, tvTeam, tvPosition};
     }
 
@@ -66,7 +58,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String s) {
                 String[] splited = s.split(" ");
                 if (splited.length == 1){
-                    Toast.makeText(getApplicationContext(), "You should entrer a last name",
+                    Toast.makeText(getApplicationContext(), "You should enter a last name",
                             Toast.LENGTH_LONG).show();
                 }else{
                     svSearchPlayer.setIconified(true);
@@ -85,10 +77,6 @@ public class PlayerStatsActivity extends AppCompatActivity {
     }
 
     private void addOnClickListenerArrow(){
-        svgArrowBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });    }
+        svgArrowBack.setOnClickListener(view -> finish());
+    }
 }

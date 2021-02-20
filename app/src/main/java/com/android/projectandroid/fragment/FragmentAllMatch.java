@@ -2,7 +2,6 @@ package com.android.projectandroid.fragment;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,22 +14,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.android.projectandroid.R;
-import com.android.projectandroid.activity.MainActivity;
 import com.android.projectandroid.adapter.MatchListAdapter;
 import com.android.projectandroid.asynctask.AsyncTaskMatch;
-import com.android.projectandroid.model.Match;
 import com.android.projectandroid.utlis.utils;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-
-import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class FragmentAllMatch extends Fragment {
     private MatchListAdapter adapter;
     private TextView calendar;
-    private ListView list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,7 +43,7 @@ public class FragmentAllMatch extends Fragment {
         //Get the view
         calendar = getActivity().findViewById(R.id.date);
         adapter = new MatchListAdapter(getContext());
-        list = (ListView) getActivity().findViewById(R.id.lvAllMatch);
+        ListView list = (ListView) getActivity().findViewById(R.id.lvAllMatch);
         list.setAdapter(adapter);
 
         //Call asynctask
@@ -68,21 +60,18 @@ public class FragmentAllMatch extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menuItemCalendar:  {
-                setDateOnClickitem();
-                return true;
-            }
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menuItemCalendar) {
+            setDateOnClickItem();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void callAsyncTask(String param){
         new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?" + param);
     }
 
-    private void setDateOnClickitem(){
+    private void setDateOnClickItem(){
         // User chose the "Settings" item, show the app settings UI...
         final Calendar myCalendar = Calendar.getInstance();
 

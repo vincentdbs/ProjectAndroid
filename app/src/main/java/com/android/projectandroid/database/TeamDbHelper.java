@@ -3,9 +3,6 @@ package com.android.projectandroid.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Build;
-
-import androidx.annotation.Nullable;
 
 import static com.android.projectandroid.database.TeamContract.TeamEntry.SQL_CREATE_ENTRIES;
 import static com.android.projectandroid.database.TeamContract.TeamEntry.SQL_DELETE_ENTRIES;

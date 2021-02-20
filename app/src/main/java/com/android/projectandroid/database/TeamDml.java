@@ -4,16 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
-import android.provider.BaseColumns;
 import android.util.Log;
 
-import com.android.projectandroid.R;
-import com.android.projectandroid.adapter.TeamAdapter;
-import com.android.projectandroid.model.Team;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
@@ -39,7 +32,7 @@ public class TeamDml {
         long newRowId = db.insert(TeamContract.TeamEntry.TABLE_NAME, null, values);
         Log.i(LOG_TAG, "Added " + newRowId);
 
-        //todo handle error if mauvaise insertion dans la bdd
+        //todo handle error if bad insertion dans la bdd
     }
 
     public Cursor readAllLine(){
@@ -53,7 +46,7 @@ public class TeamDml {
                 null               // The sort order
         );
 
-        List itemIds = new ArrayList<>();
+        ArrayList<Long> itemIds = new ArrayList<>();
         while(cursor.moveToNext()) {
             long itemId = cursor.getLong(cursor.getColumnIndexOrThrow(TeamContract.TeamEntry._ID));
             itemIds.add(itemId);
@@ -81,6 +74,8 @@ public class TeamDml {
 
         }
         Log.i(LOG_TAG, "Number of row" + favTeamAbrev.size());
+
+        cursor.close();
         return favTeamAbrev;
     }
 

@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.android.projectandroid.utlis.utils;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,15 +35,12 @@ public class AsyncTaskStringJson extends AsyncTask<String, Void, JSONObject> {
                 String s = utils.readStream(in);
 
                 //Get the authenticated value
-                JSONObject result = new JSONObject(s);
-                return result;
+                return new JSONObject(s);
             } catch (JSONException e) {
                 e.printStackTrace();
             } finally {
                 urlConnection.disconnect();
             }
-        } catch (MalformedURLException e) {
-            Log.i(LOG_TAG, e.toString());
         } catch (IOException e) {
             Log.i(LOG_TAG, e.toString());
         }

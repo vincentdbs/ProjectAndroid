@@ -39,7 +39,7 @@ public class AsyncTaskMatchNotification extends AsyncTaskStringJson {
                 ));
             }
 
-            Log.i(LOG_TAG, "Asyntask --------------");
+            Log.i(LOG_TAG, "Asynctask --------------");
 
             NotificationHelper notificationHelper = new NotificationHelper(context, matchArrayList);
             notificationHelper.createNotification();

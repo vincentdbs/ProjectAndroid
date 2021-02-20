@@ -1,9 +1,25 @@
 <resources>
     <string name="app_name">ProjectAndroid</string>
-    <string name="title_activity_player_stats">PlayerStatsActivity</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
+    <string name="arrow_back">arrow-back</string>
+    <string name="favorite_teams">Favorite teams</string>
+    <string name="reset">Reset</string>
+    <string name="half_star">half-star</string>
+    <string name="full_star">full-star</string>
+    <string name="date_template">2021/02/25</string>
+    <string name="three_dots">…</string>
+    <string name="logo_team">logo-team</string>
+    <string name="logo_team_dom">logo-team-dom</string>
+    <string name="logo_team_ext">logo-team-ext</string>
+    <string name="points">Points</string>
+    <string name="assists">Assists</string>
+    <string name="rebounds_o">Rebounds O.</string>
+    <string name="rebounds_d">Rebounds D.</string>
+    <string name="blocks">Blocks</string>
+    <string name="steals">Steals</string>
+    <string name="team">Team</string>
+    <string name="finished">Finished</string>
+    <string name="empty_star">empty-star</string>
+    <string name="calendar">Calendar</string>
+    <string name="player_statistics">Player statistics</string>
+    <string name="favorite_team">Favorite team</string>
 </resources>

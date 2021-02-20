@@ -2,7 +2,6 @@ package com.android.projectandroid.fragment;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,19 +16,12 @@ import androidx.fragment.app.Fragment;
 import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.MatchListAdapter;
 import com.android.projectandroid.asynctask.AsyncTaskMatch;
-import com.android.projectandroid.database.TeamDml;
-import com.android.projectandroid.model.Match;
 import com.android.projectandroid.utlis.utils;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-
-import static com.android.projectandroid.utlis.constants.LOG_TAG;
-import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class FragmentFavoritesMatch extends Fragment{
     private MatchListAdapter adapter;
-    private ListView list;
     private TextView calendar;
 
     @Override
@@ -49,7 +41,7 @@ public class FragmentFavoritesMatch extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
         calendar = getActivity().findViewById(R.id.date);
-        list =  getActivity().findViewById(R.id.lvFavoritesMatch);
+        ListView list = getActivity().findViewById(R.id.lvFavoritesMatch);
         adapter = new MatchListAdapter(getContext());
         list.setAdapter(adapter);
 
@@ -66,17 +58,14 @@ public class FragmentFavoritesMatch extends Fragment{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menuItemCalendar:  {
-                setDateOnClickitem();
-                return true;
-            }
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menuItemCalendar) {
+            setDateOnClickItem();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
-    private void setDateOnClickitem(){
+    private void setDateOnClickItem(){
         // User chose the "Settings" item, show the app settings UI...
         final Calendar myCalendar = Calendar.getInstance();
 

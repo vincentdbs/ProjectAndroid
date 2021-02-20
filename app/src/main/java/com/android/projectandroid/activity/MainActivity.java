@@ -30,19 +30,15 @@ public class MainActivity extends AppCompatActivity {
     // todo readme
     // todo comments + cleanup + git
     // todo sensor + service + permission
-
-
-    private TextView tv_date;
-    private ViewPager vpMatch;
-
+    // todo recycler view
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_date = findViewById(R.id.date);
-        vpMatch = findViewById(R.id.viewPagerMatch);
+        TextView tv_date = findViewById(R.id.date);
+        ViewPager vpMatch = findViewById(R.id.viewPagerMatch);
 
         tv_date.setText(utils.getNowDate());
 
@@ -115,13 +111,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        final int menuItemPlayerStat = R.id.menuItemPlayerStat;
+        final int menuItemFavoriteTeam = R.id.menuItemFavoriteTeam;
         switch (item.getItemId()) {
-            case R.id.menuItemPlayerStat:
+            case menuItemPlayerStat:
                 Intent intentPlayer = new Intent(this, PlayerStatsActivity.class);
                 startActivity(intentPlayer);
                 return true;
 
-            case R.id.menuItemFavoriteTeam:
+            case menuItemFavoriteTeam:
                 Intent intentFavorite = new Intent(this,  FavoriteTeamActivity.class);
                 startActivity(intentFavorite);
                 return true;

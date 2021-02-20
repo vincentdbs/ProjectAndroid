@@ -1,7 +1,6 @@
 package com.android.projectandroid.utlis;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.android.projectandroid.database.TeamDml;
@@ -10,11 +9,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import static com.android.projectandroid.utlis.constants.LOG_TAG;
 import static com.android.projectandroid.utlis.constants.MAP_LOGO_TEAM;
 
 public class utils {
@@ -69,10 +66,10 @@ public class utils {
     public static String getParamArrayOfApiTeamId(Context context){
         TeamDml db = new TeamDml(context);
         ArrayList<String> listOfFav = db.getAllFavTeamAbrev();
-        String param = "";
+        StringBuilder param = new StringBuilder();
         for (String str: listOfFav) {
-            param += "&team_ids[]=" + MAP_LOGO_TEAM.get(str).getApiId();
+            param.append("&team_ids[]=").append(MAP_LOGO_TEAM.get(str).getApiId());
         }
-        return param.isEmpty() ? "&team_ids[]=0" : param;
+        return (param.length() == 0) ? "&team_ids[]=0" : param.toString();
     }
 }

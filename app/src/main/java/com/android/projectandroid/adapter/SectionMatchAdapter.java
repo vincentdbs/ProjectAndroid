@@ -13,9 +13,6 @@ public class SectionMatchAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitle = new ArrayList<>();
 
-
-    public static final int BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT = 1;
-
     public void addFragment(Fragment fragment) {
         mFragmentList.add(fragment);
     }

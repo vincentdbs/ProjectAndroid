@@ -5,17 +5,17 @@
     <item
         android:id="@+id/menuItemCalendar"
         android:icon="@drawable/ic_baseline_calendar_today_20"
-        app:showAsAction="always"
-        android:title="Calendar"/>
+        app:showAsAction="ifRoom"
+        android:title="@string/calendar"/>
 
     <!-- "Mark Favorite", should appear as action button if possible -->
     <item
         android:id="@+id/menuItemPlayerStat"
         android:icon="@drawable/ic_baseline_star_24"
-        android:title="Player stats" />
+        android:title="@string/player_statistics" />
 
     <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/menuItemFavoriteTeam"
-        android:title="Favorite team"
+        android:title="@string/favorite_team"
         app:showAsAction="never"/>
 </menu>

@@ -2,8 +2,6 @@ package com.android.projectandroid.database;
 
 import android.provider.BaseColumns;
 
-import com.android.projectandroid.model.Team;
-
 public class TeamContract {
     private TeamContract() { }
 
