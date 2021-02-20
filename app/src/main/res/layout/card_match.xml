@@ -20,7 +20,8 @@
             android:id="@+id/logoTeamDom"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="logo-team-dom" />
 
         <TextView
             android:fontFamily="@font/ttlakes"
@@ -90,7 +91,8 @@
             android:id="@+id/logoTeamExt"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="logo-team-ext" />
 
         <TextView
             android:fontFamily="@font/ttlakes"

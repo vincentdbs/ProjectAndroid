@@ -21,7 +21,8 @@
             android:layout_marginRight="12dp"
             android:layout_marginLeft="12dp"
             app:srcCompat="@drawable/ic_arrow_left_447"
-            app:tint="@color/black" />
+            app:tint="@color/black"
+            android:contentDescription="arrow-back" />
 
         <SearchView
             android:id="@+id/svSearchPlayer"
@@ -121,7 +122,8 @@
                     android:layout_marginEnd="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.28" />
+                    app:layout_constraintVertical_bias="0.28"
+                    android:contentDescription="logo-team" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
