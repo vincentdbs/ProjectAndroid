@@ -115,13 +115,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        final int menuItemPlayerStat = R.id.menuItemPlayerStat;
+        final int menuItemFavoriteTeam = R.id.menuItemFavoriteTeam;
         switch (item.getItemId()) {
-            case R.id.menuItemPlayerStat:
+            case menuItemPlayerStat:
                 Intent intentPlayer = new Intent(this, PlayerStatsActivity.class);
                 startActivity(intentPlayer);
                 return true;
 
-            case R.id.menuItemFavoriteTeam:
+            case menuItemFavoriteTeam:
                 Intent intentFavorite = new Intent(this,  FavoriteTeamActivity.class);
                 startActivity(intentFavorite);
                 return true;

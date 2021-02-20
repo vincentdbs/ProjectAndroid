@@ -66,14 +66,11 @@ public class FragmentFavoritesMatch extends Fragment{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menuItemCalendar:  {
-                setDateOnClickitem();
-                return true;
-            }
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menuItemCalendar) {
+            setDateOnClickitem();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setDateOnClickitem(){
