@@ -66,7 +66,7 @@ public class PlayerStatsActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String s) {
                 String[] splited = s.split(" ");
                 if (splited.length == 1){
-                    Toast.makeText(getApplicationContext(), "You should entrer a last name",
+                    Toast.makeText(getApplicationContext(), "You should enter a last name",
                             Toast.LENGTH_LONG).show();
                 }else{
                     svSearchPlayer.setIconified(true);

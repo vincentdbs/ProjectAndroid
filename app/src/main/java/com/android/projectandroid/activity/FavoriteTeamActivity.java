@@ -87,7 +87,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
                         listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
                     }
                 }
-                //Notify the adapter that the dataset changed
+                //Notify the adapter that the data set changed
                 adapter.notifyDataSetChanged();
             }
         });

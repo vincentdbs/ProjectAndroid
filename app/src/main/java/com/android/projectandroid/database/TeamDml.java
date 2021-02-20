@@ -39,7 +39,7 @@ public class TeamDml {
         long newRowId = db.insert(TeamContract.TeamEntry.TABLE_NAME, null, values);
         Log.i(LOG_TAG, "Added " + newRowId);
 
-        //todo handle error if mauvaise insertion dans la bdd
+        //todo handle error if bad insertion dans la bdd
     }
 
     public Cursor readAllLine(){

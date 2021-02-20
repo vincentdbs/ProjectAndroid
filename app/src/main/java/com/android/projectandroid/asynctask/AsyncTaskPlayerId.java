@@ -69,7 +69,7 @@ public class AsyncTaskPlayerId extends AsyncTaskStringJson {
                 String fName = players.getJSONObject(i).getString("first_name").toLowerCase();
                 String lName = players.getJSONObject(i).getString("last_name").toLowerCase();
                 if((fName.equals(firstName)) && (lName.equals(lastName))){
-                    //Return the index of the player in the JSONarray
+                    //Return the index of the player in the JSON array
                     return i;
                 }
             }
