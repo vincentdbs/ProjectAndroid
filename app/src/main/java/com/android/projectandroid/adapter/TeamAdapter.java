@@ -29,7 +29,7 @@ public class TeamAdapter extends BaseAdapter {
 
     public TeamAdapter(Context context) {
         this.context = context;
-        this.teams = new ArrayList<Team>();
+        this.teams = new ArrayList<>();
     }
 
     @Override

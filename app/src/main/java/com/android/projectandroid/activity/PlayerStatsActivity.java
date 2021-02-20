@@ -85,10 +85,6 @@ public class PlayerStatsActivity extends AppCompatActivity {
     }
 
     private void addOnClickListenerArrow(){
-        svgArrowBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });    }
+        svgArrowBack.setOnClickListener(view -> finish());
+    }
 }

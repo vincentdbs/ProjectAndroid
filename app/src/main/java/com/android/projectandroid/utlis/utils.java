@@ -69,10 +69,10 @@ public class utils {
     public static String getParamArrayOfApiTeamId(Context context){
         TeamDml db = new TeamDml(context);
         ArrayList<String> listOfFav = db.getAllFavTeamAbrev();
-        String param = "";
+        StringBuilder param = new StringBuilder();
         for (String str: listOfFav) {
-            param += "&team_ids[]=" + MAP_LOGO_TEAM.get(str).getApiId();
+            param.append("&team_ids[]=").append(MAP_LOGO_TEAM.get(str).getApiId());
         }
-        return param.isEmpty() ? "&team_ids[]=0" : param;
+        return (param.length() == 0) ? "&team_ids[]=0" : param.toString();
     }
 }

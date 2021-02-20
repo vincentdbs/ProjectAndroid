@@ -68,46 +68,41 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     }
 
     private void onClickSwitch(){
-        switchFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //Get the new list of favorite team
-                listOfFavoriteTeam = getFavoriteFromDb(getApplicationContext());
-                //Clear the old list of team
-                listOfTeam.clear();
-                if(isChecked){
-                    for (Team team : MAP_LOGO_TEAM.values()) {
-                        //Only add the favorite team to the list
-                        if(listOfFavoriteTeam.contains(team.getAbreviation())){
-                            listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), true));
-                        }
-                    }
-
-                }else{
-                    for (Team team : MAP_LOGO_TEAM.values()) {
-                        listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
+        switchFavorite.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            //Get the new list of favorite team
+            listOfFavoriteTeam = getFavoriteFromDb(getApplicationContext());
+            //Clear the old list of team
+            listOfTeam.clear();
+            if(isChecked){
+                for (Team team : MAP_LOGO_TEAM.values()) {
+                    //Only add the favorite team to the list
+                    if(listOfFavoriteTeam.contains(team.getAbreviation())){
+                        listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), true));
                     }
                 }
-                //Notify the adapter that the data set changed
-                adapter.notifyDataSetChanged();
+
+            }else{
+                for (Team team : MAP_LOGO_TEAM.values()) {
+                    listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
+                }
             }
+            //Notify the adapter that the data set changed
+            adapter.notifyDataSetChanged();
         });
     }
 
     public void btnResetFavOnClickListener(){
-        btnResetFav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TeamDml db = new TeamDml(getApplicationContext());
-                db.deleteAllTableContent();
-                listOfTeam.clear();
-                if(!switchFavorite.isChecked()){
-                    for (Team team : MAP_LOGO_TEAM.values()) {
-                        listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
-                    }
+        btnResetFav.setOnClickListener(view -> {
+            TeamDml db = new TeamDml(getApplicationContext());
+            db.deleteAllTableContent();
+            listOfTeam.clear();
+            if(!switchFavorite.isChecked()){
+                for (Team team : MAP_LOGO_TEAM.values()) {
+                    listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
                 }
-
-                adapter.notifyDataSetChanged();
             }
+
+            adapter.notifyDataSetChanged();
         });
     }
 }

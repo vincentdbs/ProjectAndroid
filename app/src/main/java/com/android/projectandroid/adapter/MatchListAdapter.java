@@ -24,7 +24,7 @@ public class MatchListAdapter extends BaseAdapter{
 
     public MatchListAdapter(Context context) {
         this.context = context;
-        this.matches = new ArrayList<Match>();
+        this.matches = new ArrayList<>();
     }
 
 

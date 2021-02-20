@@ -53,7 +53,7 @@ public class TeamDml {
                 null               // The sort order
         );
 
-        List itemIds = new ArrayList<>();
+        ArrayList<Long> itemIds = new ArrayList<>();
         while(cursor.moveToNext()) {
             long itemId = cursor.getLong(cursor.getColumnIndexOrThrow(TeamContract.TeamEntry._ID));
             itemIds.add(itemId);
