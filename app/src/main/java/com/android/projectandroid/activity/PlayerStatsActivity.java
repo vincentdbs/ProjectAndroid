@@ -18,7 +18,6 @@ public class PlayerStatsActivity extends AppCompatActivity {
     private TextView[] textViews;
     private ImageView ivTeam;
     private SearchView svSearchPlayer;
-    private String playerToSearch;
     private ImageView svgArrowBack;
 
 

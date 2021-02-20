@@ -17,16 +17,10 @@ public class MatchListAdapter extends BaseAdapter{
     private Context context;
     private ArrayList<Match> matches;
 
-    public MatchListAdapter(Context context, ArrayList<Match> matches) {
-        this.context = context;
-        this.matches = matches;
-    }
-
     public MatchListAdapter(Context context) {
         this.context = context;
         this.matches = new ArrayList<>();
     }
-
 
     @Override
     public int getCount() {

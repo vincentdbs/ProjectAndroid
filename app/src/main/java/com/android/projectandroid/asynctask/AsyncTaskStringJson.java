@@ -41,8 +41,6 @@ public class AsyncTaskStringJson extends AsyncTask<String, Void, JSONObject> {
             } finally {
                 urlConnection.disconnect();
             }
-        } catch (MalformedURLException e) {
-            Log.i(LOG_TAG, e.toString());
         } catch (IOException e) {
             Log.i(LOG_TAG, e.toString());
         }
