@@ -52,12 +52,6 @@ public class utils {
 
     public static ArrayList<String> getFavoriteFromDb(Context context){
         TeamDml db = new TeamDml(context);
-////        todo delete => here for test purpose
-//        db.deleteAllTableContent();
-//
-//        db.addLine("SAS");
-//        db.addLine("GSW");
-//        db.addLine("LAC");
 
         return db.getAllFavTeamAbrev();
     }

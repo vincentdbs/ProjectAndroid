@@ -17,7 +17,6 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.i(LOG_TAG, "broadcast receiver");
 
-        //todo today - 1
         String paramDate = utils.getYesterdayDate();
         String param = "start_date=" + paramDate+ "&end_date=" + paramDate + utils.getParamArrayOfApiTeamId(context);
 
