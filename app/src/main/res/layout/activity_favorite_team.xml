@@ -100,16 +100,25 @@
 
 
 
-    <ListView
-        android:id="@+id/lvFavoriteTeam"
+<!--    <ListView-->
+<!--        android:id="@+id/lvFavoriteTeam"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/layoutNavbarFavoriteTeam"-->
+<!--        android:listSelector="@android:color/transparent"-->
+<!--        android:divider="@android:color/transparent"/>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFavoriteTeam"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutNavbarFavoriteTeam"
-        android:listSelector="@android:color/transparent"
-        android:divider="@android:color/transparent"/>
+        app:layout_constraintTop_toBottomOf="@+id/layoutNavbarFavoriteTeam" />
 
 
 </LinearLayout>

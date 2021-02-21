@@ -27,7 +27,6 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     // todo logo app
-    // todo readme
     // todo comments + cleanup + git
     // todo sensor + service + permission
     // todo recycler view
