@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     // todo logo app
     // todo comments + cleanup + git
     // todo sensor + service + permission
-    // todo recycler view
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

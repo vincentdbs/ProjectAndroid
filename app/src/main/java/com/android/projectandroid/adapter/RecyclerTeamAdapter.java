@@ -83,8 +83,6 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
 
         addOnClickStarListener(holder.star, position);
 
-        //todo add listner
-//        addOnClickStarListener(holder.star, position);
         holder.logo.setImageResource(team.getLogo());
         holder.star.setColorFilter(R.color.black);
         holder.tvNameTeam.setText(team.getName());
