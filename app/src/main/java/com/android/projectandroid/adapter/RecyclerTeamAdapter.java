@@ -81,20 +81,7 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
 
         holder.star.setImageResource(team.isFavorites() ? R.drawable.ic_baseline_star_24 : R.drawable.ic_baseline_star_border_32);
 
-        holder.star.setOnClickListener(v->{
-            TeamDml db = new TeamDml(context);
-            Team actualTeam = mTeams.get(position);
-
-            actualTeam.flipFavorite();
-            //Display full star + add the team to the DB
-            if(actualTeam.isFavorites()){
-                holder.star.setImageResource(R.drawable.ic_baseline_star_24);
-                db.addLine(actualTeam.getAbreviation());
-            }else{ //Display border start + remove team from BD
-                holder.star.setImageResource(R.drawable.ic_baseline_star_border_32);
-                db.deleteFilteredTableContent(actualTeam.getAbreviation());
-            }
-        });
+        addOnClickStarListener(holder.star, position);
 
         //todo add listner
 //        addOnClickStarListener(holder.star, position);
@@ -109,20 +96,20 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
         return mTeams.size();
     }
 
-//    private void addOnClickStarListener(ImageView star, int position){
-//        star.setOnClickListener(view -> {
-//            TeamDml db = new TeamDml(context);
-//            Team actualTeam = teams.get(position);
-//
-//            actualTeam.flipFavorite();
-//            //Display full star + add the team to the DB
-//            if(actualTeam.isFavorites()){
-//                star.setImageResource(R.drawable.ic_baseline_star_24);
-//                db.addLine(actualTeam.getAbreviation());
-//            }else{ //Display border start + remove team from BD
-//                star.setImageResource(R.drawable.ic_baseline_star_border_32);
-//                db.deleteFilteredTableContent(actualTeam.getAbreviation());
-//            }
-//        });
-//    }
+    private void addOnClickStarListener(ImageView star, int position){
+        star.setOnClickListener(view -> {
+            TeamDml db = new TeamDml(context);
+            Team actualTeam = mTeams.get(position);
+
+            actualTeam.flipFavorite();
+            //Display full star + add the team to the DB
+            if(actualTeam.isFavorites()){
+                star.setImageResource(R.drawable.ic_baseline_star_24);
+                db.addLine(actualTeam.getAbreviation());
+            }else{ //Display border start + remove team from BD
+                star.setImageResource(R.drawable.ic_baseline_star_border_32);
+                db.deleteFilteredTableContent(actualTeam.getAbreviation());
+            }
+        });
+    }
 }
