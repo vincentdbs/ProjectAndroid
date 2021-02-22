@@ -2,6 +2,8 @@ package com.android.projectandroid.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.android.projectandroid.R;
+import com.android.projectandroid.adapter.RecyclerTeamAdapter;
 import com.android.projectandroid.adapter.TeamAdapter;
 import com.android.projectandroid.database.TeamDml;
 import com.android.projectandroid.model.Team;
@@ -22,10 +25,9 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     private SwitchCompat switchFavorite;
     private ArrayList<Team> listOfTeam;
     private ArrayList<String> listOfFavoriteTeam;
-    private TeamAdapter adapter;
+    private RecyclerTeamAdapter adapter;
     private Button btnResetFav;
 
-    //todo recycler view instead of list view
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,6 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorite_team);
 
         //Find view by ID
-        ListView list = findViewById(R.id.lvFavoriteTeam);
         switchFavorite = findViewById(R.id.switchOnlyFavorite);
         btnResetFav = findViewById(R.id.btnResetFav);
         ImageView ivBackArrow = findViewById(R.id.svgArrowBackTeam);
@@ -49,9 +50,15 @@ public class FavoriteTeamActivity extends AppCompatActivity {
             listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), listOfFavoriteTeam.contains(team.getAbreviation())));
         }
 
-        //Set the adapter
-        adapter = new TeamAdapter(getApplicationContext(), listOfTeam);
-        list.setAdapter(adapter);
+        // Lookup the recyclerview in activity layout
+        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvFavoriteTeam);
+
+        // Create adapter passing in the sample user data
+        adapter = new RecyclerTeamAdapter(listOfTeam, getApplicationContext());
+        // Attach the adapter to the recyclerview to populate items
+        rvContacts.setAdapter(adapter);
+        // Set layout manager to position the items
+        rvContacts.setLayoutManager(new LinearLayoutManager(this));
 
         //Listener
         onClickSwitch();
