@@ -19,6 +19,8 @@ import java.util.List;
 // Note that we specify the custom ViewHolder which gives us access to our views
 public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapter.ViewHolder> {
 
+
+
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -43,10 +45,16 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
 
     // Store a member variable for the contacts
     private List<Team> mTeams;
+    private Context context;
 
     // Pass in the contact array into the constructor
     public RecyclerTeamAdapter(List<Team> mTeams) {
         this.mTeams = mTeams;
+    }
+
+    public RecyclerTeamAdapter(List<Team> mTeams, Context context) {
+        this.mTeams = mTeams;
+        this.context = context;
     }
 
     // Usually involves inflating a layout from XML and returning the holder
@@ -72,6 +80,21 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
         // Set item views based on your views and data model
 
         holder.star.setImageResource(team.isFavorites() ? R.drawable.ic_baseline_star_24 : R.drawable.ic_baseline_star_border_32);
+
+        holder.star.setOnClickListener(v->{
+            TeamDml db = new TeamDml(context);
+            Team actualTeam = mTeams.get(position);
+
+            actualTeam.flipFavorite();
+            //Display full star + add the team to the DB
+            if(actualTeam.isFavorites()){
+                holder.star.setImageResource(R.drawable.ic_baseline_star_24);
+                db.addLine(actualTeam.getAbreviation());
+            }else{ //Display border start + remove team from BD
+                holder.star.setImageResource(R.drawable.ic_baseline_star_border_32);
+                db.deleteFilteredTableContent(actualTeam.getAbreviation());
+            }
+        });
 
         //todo add listner
 //        addOnClickStarListener(holder.star, position);

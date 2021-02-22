@@ -25,10 +25,9 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     private SwitchCompat switchFavorite;
     private ArrayList<Team> listOfTeam;
     private ArrayList<String> listOfFavoriteTeam;
-    private TeamAdapter adapter;
+    private RecyclerTeamAdapter adapter;
     private Button btnResetFav;
 
-    //todo recycler view instead of list view
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,6 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorite_team);
 
         //Find view by ID
-//        ListView list = findViewById(R.id.lvFavoriteTeam);
         switchFavorite = findViewById(R.id.switchOnlyFavorite);
         btnResetFav = findViewById(R.id.btnResetFav);
         ImageView ivBackArrow = findViewById(R.id.svgArrowBackTeam);
@@ -56,20 +54,15 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvFavoriteTeam);
 
         // Create adapter passing in the sample user data
-        RecyclerTeamAdapter adapter = new RecyclerTeamAdapter(listOfTeam);
+        adapter = new RecyclerTeamAdapter(listOfTeam, getApplicationContext());
         // Attach the adapter to the recyclerview to populate items
         rvContacts.setAdapter(adapter);
         // Set layout manager to position the items
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
 
-        // todo remettre
-//        //Set the adapter
-//        adapter = new TeamAdapter(getApplicationContext(), listOfTeam);
-//        list.setAdapter(adapter);
-//
-//        //Listener
-//        onClickSwitch();
-//        btnResetFavOnClickListener();
+        //Listener
+        onClickSwitch();
+        btnResetFavOnClickListener();
     }
 
     private void onClickSwitch(){
