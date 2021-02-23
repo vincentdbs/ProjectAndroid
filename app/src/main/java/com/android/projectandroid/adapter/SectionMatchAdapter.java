@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SectionMatchAdapter extends FragmentPagerAdapter {
-    // This array list will gonna add the fragment one after another
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitle = new ArrayList<>();
 

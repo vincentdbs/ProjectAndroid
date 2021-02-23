@@ -19,12 +19,18 @@ public class AsyncTaskMatch extends AsyncTaskStringJson {
         this.adapter = adapter;
     }
 
+    /**
+     * Fill the adapter's list with the result of the API call
+     * @param jsonObject, the JSONObject that contains all the wanted matches
+     */
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
+        //Clear the previous list in the adapter
         adapter.clearMatches();
         Log.i(LOG_TAG, jsonObject.toString());
         try {
             JSONArray matches = jsonObject.getJSONArray("data");
+            //Add each match to the list in the adapter
             for (int i = 0; i < matches.length() ; i++) {
                 adapter.add(new Match(
                         MAP_LOGO_TEAM.get(matches.getJSONObject(i).getJSONObject("home_team").getString("abbreviation")).getLogo(),
@@ -37,8 +43,8 @@ public class AsyncTaskMatch extends AsyncTaskStringJson {
                 ));
             }
 
+            //Notify the adapter that its data set has changed
             adapter.notifyDataSetChanged();
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

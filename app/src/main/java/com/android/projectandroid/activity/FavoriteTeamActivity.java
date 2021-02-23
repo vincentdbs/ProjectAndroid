@@ -8,11 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.android.projectandroid.R;
 import com.android.projectandroid.adapter.RecyclerTeamAdapter;
-import com.android.projectandroid.adapter.TeamAdapter;
 import com.android.projectandroid.database.TeamDml;
 import com.android.projectandroid.model.Team;
 

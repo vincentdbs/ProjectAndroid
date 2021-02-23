@@ -30,6 +30,10 @@ public class AsyncTaskPlayerStats extends AsyncTaskStringJson {
         this.context = context;
     }
 
+    /**
+     * Set the textviews of player stats activity with the content of the Json object
+     * @param jsonObject that contains the statistics of the player
+     */
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         try {
@@ -55,6 +59,5 @@ public class AsyncTaskPlayerStats extends AsyncTaskStringJson {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 }

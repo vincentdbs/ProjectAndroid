@@ -19,10 +19,15 @@ public class TeamDml {
         db = teamDbHelper.getWritableDatabase();
     }
 
+
     public void closeConnection(){
         teamDbHelper.close();
     }
 
+    /**
+     * Add an Team abreviation to the favorite team table in the database
+     * @param abrev, the string to add
+     */
     public void addLine(String abrev){
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
@@ -35,6 +40,10 @@ public class TeamDml {
         //todo handle error if bad insertion dans la bdd
     }
 
+    /**
+     * Read all the line of the Team table
+     * @return the cursor that contain all the IDs of the Team table
+     */
     public Cursor readAllLine(){
         Cursor cursor = db.query(
                 TeamContract.TeamEntry.TABLE_NAME,   // The table to query
@@ -46,6 +55,7 @@ public class TeamDml {
                 null               // The sort order
         );
 
+        //Add each item's ID to the list
         ArrayList<Long> itemIds = new ArrayList<>();
         while(cursor.moveToNext()) {
             long itemId = cursor.getLong(cursor.getColumnIndexOrThrow(TeamContract.TeamEntry._ID));
@@ -55,7 +65,12 @@ public class TeamDml {
         return cursor;
     }
 
+    /**
+     * Get the list of team abreviation from the databse
+     * @return ArrayList<String> that contains all the favorite's team abreviation
+     */
     public ArrayList<String> getAllFavTeamAbrev(){
+        //Execute the SQL query
         Cursor cursor = db.query(
                 TeamContract.TeamEntry.TABLE_NAME,   // The table to query
                 null,             // The array of columns to return (pass null to get all)
@@ -66,6 +81,7 @@ public class TeamDml {
                 TeamContract.TeamEntry.COLUMN_NAME_ABREV + " DESC"               // The sort order
         );
 
+        //Store each value from the database in the list
         ArrayList<String> favTeamAbrev = new ArrayList<>();
         while(cursor.moveToNext()) {
             String teamAbrev = cursor.getString(cursor.getColumnIndexOrThrow(TeamContract.TeamEntry.COLUMN_NAME_ABREV));
@@ -80,9 +96,12 @@ public class TeamDml {
     }
 
 
-
+    /**
+     * Delete the lines equals the filter
+     * @param filter the filter in the "like" part of the SQL query
+     */
     public void deleteFilteredTableContent(String... filter){
-        // Define 'where' part of query.
+        // Define 'like' part of query.
         String selection = TeamContract.TeamEntry.COLUMN_NAME_ABREV + " LIKE ?";
 
         // Issue SQL statement.
@@ -90,6 +109,9 @@ public class TeamDml {
         Log.i(LOG_TAG, "Deleted " + deletedRows);
     }
 
+    /**
+     * Delete all the line of the Team table
+     */
     public void deleteAllTableContent(){
         // Issue SQL statement.
         int deletedRows = db.delete(TeamContract.TeamEntry.TABLE_NAME, null, null);

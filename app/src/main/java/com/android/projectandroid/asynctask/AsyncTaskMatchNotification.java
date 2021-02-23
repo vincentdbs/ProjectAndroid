@@ -22,11 +22,16 @@ public class AsyncTaskMatchNotification extends AsyncTaskStringJson {
         this.context = context;
     }
 
+    /**
+     * Create an arraylist of match from the result of the API call
+     * @param jsonObject, the JSONObject that contains all the wanted matches
+     */
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         try {
             JSONArray matches = jsonObject.getJSONArray("data");
             ArrayList<Match>  matchArrayList = new ArrayList<>();
+            //Add each match to the list
             for (int i = 0; i < matches.length() ; i++) {
                 matchArrayList.add(new Match(
                         MAP_LOGO_TEAM.get(matches.getJSONObject(i).getJSONObject("home_team").getString("abbreviation")).getLogo(),
@@ -39,11 +44,10 @@ public class AsyncTaskMatchNotification extends AsyncTaskStringJson {
                 ));
             }
 
-            Log.i(LOG_TAG, "Asynctask --------------");
-
+            //Send the list to the notification helper
             NotificationHelper notificationHelper = new NotificationHelper(context, matchArrayList);
+            //Send the notification
             notificationHelper.createNotification();
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

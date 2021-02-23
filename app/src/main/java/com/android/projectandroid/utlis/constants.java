@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class constants {
+    //Constant for logs
     public final static String LOG_TAG = "NBA_APP";
+    //List of NBA team
     public final static Map<String, Team> MAP_LOGO_TEAM = new HashMap<String, Team>() {{
         put("ATL", new Team(R.drawable.logo_hawks, "Hawks", "ATL", "Atlanta", 1));
         put("BOS", new Team(R.drawable.logo_celtics, "Celtics", "BOS", "Boston", 2));

@@ -44,6 +44,7 @@ public class MatchListAdapter extends BaseAdapter{
             convertView = LayoutInflater.from(context).inflate(R.layout.card_match, viewGroup, false);
         }
 
+        //Get all the UI element of the item
         ImageView imTeamDom = convertView.findViewById(R.id.logoTeamDom);
         ImageView imTeamExt = convertView.findViewById(R.id.logoTeamExt);
         TextView tvNameTeamDom = convertView.findViewById(R.id.nameTeamDom);
@@ -52,6 +53,7 @@ public class MatchListAdapter extends BaseAdapter{
         TextView tvScoreTeamExt = convertView.findViewById(R.id.scoreTeamExt);
         TextView time = convertView.findViewById(R.id.time);
 
+        //Set all the UI element of the item
         imTeamDom.setImageResource(matches.get(i).getIdLogoTeamDom());
         imTeamExt.setImageResource(matches.get(i).getIdLogoTeamExt());
         tvNameTeamDom.setText(matches.get(i).getNameTeamDom());
@@ -59,7 +61,6 @@ public class MatchListAdapter extends BaseAdapter{
         tvScoreTeamDom.setText(matches.get(i).getScoreTeamDom());
         tvScoreTeamExt.setText(matches.get(i).getScoreTeamExt());
         time.setText(matches.get(i).getTime());
-
 
         return convertView;
     }
