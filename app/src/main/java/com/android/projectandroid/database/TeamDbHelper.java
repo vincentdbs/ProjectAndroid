@@ -8,7 +8,6 @@ import static com.android.projectandroid.database.TeamContract.TeamEntry.SQL_CRE
 import static com.android.projectandroid.database.TeamContract.TeamEntry.SQL_DELETE_ENTRIES;
 
 public class TeamDbHelper extends SQLiteOpenHelper {
-    // If you change the database schema, you must increment the database version.
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Team.db";
 
