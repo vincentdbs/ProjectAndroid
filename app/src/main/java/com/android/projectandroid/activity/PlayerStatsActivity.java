@@ -31,6 +31,9 @@ public class PlayerStatsActivity extends AppCompatActivity {
         addOnClickListenerArrow();
     }
 
+    /**
+     * Get all the UI component of the activity
+     */
     private void initFields(){
         //Logo team
         ivTeam = findViewById(R.id.logoTeam);
@@ -52,17 +55,22 @@ public class PlayerStatsActivity extends AppCompatActivity {
         textViews = new TextView[]{tvFirstName, tvLastName, tvPoints, tvAssists, tvReboundsD, tvReboundsO, tvBlocks, tvSteals, tvTeam, tvPosition};
     }
 
+    /**
+     * Do the http request on research
+     */
     private void addQueryListener(){
         svSearchPlayer.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
+                //Split the prompted text in two
                 String[] splited = s.split(" ");
-                if (splited.length == 1){
+                if (splited.length == 1){ //if there is only one member => there is no last name
                     Toast.makeText(getApplicationContext(), "You should enter a last name",
                             Toast.LENGTH_LONG).show();
                 }else{
                     svSearchPlayer.setIconified(true);
                     Log.i(LOG_TAG, splited[0] + " " + splited[1]);
+                    //Do the request
                     new AsyncTaskPlayerId(getApplicationContext(), splited[0].toLowerCase(), splited[1].toLowerCase(), ivTeam, textViews)
                             .execute("https://www.balldontlie.io/api/v1/players?per_page=100&search=" + splited[1].toLowerCase());
                 }
@@ -76,6 +84,9 @@ public class PlayerStatsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Close the activity onClick of the arrow
+     */
     private void addOnClickListenerArrow(){
         svgArrowBack.setOnClickListener(view -> finish());
     }
