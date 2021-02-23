@@ -18,10 +18,11 @@
 
     <TextView
         android:id="@+id/tvNameFavoriteTeam"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginStart="112dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ttlakes"
-        android:gravity="center"
+        android:gravity="start"
         android:text="@string/team"
         android:textColor="@color/black"
         android:textSize="20sp"

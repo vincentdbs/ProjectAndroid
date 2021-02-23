@@ -84,7 +84,7 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
         //Team's logo
         holder.logo.setImageResource(team.getLogo());
         //Teams's name
-        holder.tvNameTeam.setText(team.getName());
+        holder.tvNameTeam.setText(team.getAbreviation() + " - " + team.getName());
     }
 
     // Returns the total count of items in the list

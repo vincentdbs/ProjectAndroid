@@ -87,7 +87,7 @@ public class FragmentFavoritesMatch extends Fragment{
     }
 
     private void callAsyncTask(String param){
-        new AsyncTaskMatch(adapter).execute("https://www.balldontlie.io/api/v1/games?" + param);
+        new AsyncTaskMatch(adapter, getContext()).execute("https://www.balldontlie.io/api/v1/games?" + param);
     }
 
 }

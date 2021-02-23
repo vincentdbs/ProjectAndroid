@@ -35,25 +35,30 @@ public class AsyncTaskPlayerId extends AsyncTaskStringJson {
      */
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
-        Log.i(LOG_TAG, jsonObject.toString());
         try {
-            JSONArray players = jsonObject.getJSONArray("data");
-            //Get the player index by searching by first and last name
-            int jsonObjectIndex = getGoodPlayer(players);
-            //If the player exists in the array => do another http request to get his statistics
-            if(jsonObjectIndex != -1)  {
-                JSONObject player = players.getJSONObject(jsonObjectIndex);
-                String team = player.getJSONObject("team").getString("full_name");
-                String teamAbrev = player.getJSONObject("team").getString("abbreviation");
-                String position = player.getString("position");
-                new AsyncTaskPlayerStats(context, textViews, ivTeam, firstName, lastName, team, teamAbrev, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
-            }else{ // reset all the textviews to '...' and display a toast
-                utils.clearTextViews("...", textViews);
-                ivTeam.setImageResource(R.drawable.logo_nba);
-                Toast.makeText(context, "No user has been found", Toast.LENGTH_LONG).show();
+            if(jsonObject != null){
+                Log.i(LOG_TAG, jsonObject.toString());
+                JSONArray players = jsonObject.getJSONArray("data");
+                //Get the player index by searching by first and last name
+                int jsonObjectIndex = getGoodPlayer(players);
+                //If the player exists in the array => do another http request to get his statistics
+                if(jsonObjectIndex != -1)  {
+                    JSONObject player = players.getJSONObject(jsonObjectIndex);
+                    String team = player.getJSONObject("team").getString("full_name");
+                    String teamAbrev = player.getJSONObject("team").getString("abbreviation");
+                    String position = player.getString("position");
+                    new AsyncTaskPlayerStats(context, textViews, ivTeam, firstName, lastName, team, teamAbrev, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
+                }else{ // reset all the textviews to '...' and display a toast
+                    utils.clearTextViews("...", textViews);
+                    ivTeam.setImageResource(R.drawable.logo_nba);
+                    Toast.makeText(context, "No user has been found", Toast.LENGTH_LONG).show();
+                }
+            }else{
+                Toast.makeText(context, "Something went wrong, try again", Toast.LENGTH_LONG).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();
+            Toast.makeText(context, "Something went wrong, try again", Toast.LENGTH_LONG).show();
         }
     }
 

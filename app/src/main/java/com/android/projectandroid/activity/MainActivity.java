@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     // todo logo app
     // todo comments + cleanup + git
     // todo sensor + service + permission
-    // todo gere crash appli si pas internet
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

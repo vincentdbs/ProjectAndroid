@@ -5,12 +5,13 @@ import com.android.projectandroid.model.Team;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class constants {
     //Constant for logs
     public final static String LOG_TAG = "NBA_APP";
     //List of NBA team
-    public final static Map<String, Team> MAP_LOGO_TEAM = new HashMap<String, Team>() {{
+    public final static Map<String, Team> MAP_LOGO_TEAM = new TreeMap<String, Team>() {{
         put("ATL", new Team(R.drawable.logo_hawks, "Hawks", "ATL", "Atlanta", 1));
         put("BOS", new Team(R.drawable.logo_celtics, "Celtics", "BOS", "Boston", 2));
         put("BKN", new Team(R.drawable.logo_nets, "Nets", "BKN", "Brooklyn", 3));
