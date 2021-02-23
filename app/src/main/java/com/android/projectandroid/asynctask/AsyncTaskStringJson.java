@@ -17,24 +17,34 @@ import java.net.URL;
 
 import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
+/**
+ * Mother class of asynctask that call an API and returns a JSONObject in the doInBackground method
+ */
 public class AsyncTaskStringJson extends AsyncTask<String, Void, JSONObject> {
     public AsyncTaskStringJson() {
     }
 
+    /**
+     * Do a http request with the URL passed in parameter
+     * @param strings, the URL of the http request
+     * @return the result of the call in a JSON format
+     */
     @Override
     protected JSONObject doInBackground(String... strings) {
         Log.i(LOG_TAG, strings[0]);
         URL url;
         try {
-            //Replace http by https
             url = new URL(strings[0]);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
             try {
+                //Do the request
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+                //Get the result in a string format
                 String s = utils.readStream(in);
 
-                //Get the authenticated value
+                //Return the JSON in string format
                 return new JSONObject(s);
             } catch (JSONException e) {
                 e.printStackTrace();
