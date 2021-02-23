@@ -37,27 +37,32 @@ public class AsyncTaskPlayerStats extends AsyncTaskStringJson {
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         try {
-            //Personal info of the player
-            JSONArray data = jsonObject.getJSONArray("data");
-            textViews[0].setText(utils.capitalize(firstName));
-            textViews[1].setText(utils.capitalize(lastName));
-            textViews[8].setText(team);
-            textViews[9].setText(position);
-            ivTeam.setImageResource(MAP_LOGO_TEAM.get(teamAbrev).getLogo());
-            //Statistics of the player in the current season
-            if(data.length() != 0){
-                JSONObject playerStat = data.getJSONObject(0);
-                textViews[2].setText(playerStat.getString("pts"));
-                textViews[3].setText(playerStat.getString("ast"));
-                textViews[4].setText(playerStat.getString("dreb"));
-                textViews[5].setText(playerStat.getString("oreb"));
-                textViews[6].setText(playerStat.getString("blk"));
-                textViews[7].setText(playerStat.getString("stl"));
+            if(jsonObject != null){
+                //Personal info of the player
+                JSONArray data = jsonObject.getJSONArray("data");
+                textViews[0].setText(utils.capitalize(firstName));
+                textViews[1].setText(utils.capitalize(lastName));
+                textViews[8].setText(team);
+                textViews[9].setText(position);
+                ivTeam.setImageResource(MAP_LOGO_TEAM.get(teamAbrev).getLogo());
+                //Statistics of the player in the current season
+                if(data.length() != 0){
+                    JSONObject playerStat = data.getJSONObject(0);
+                    textViews[2].setText(playerStat.getString("pts"));
+                    textViews[3].setText(playerStat.getString("ast"));
+                    textViews[4].setText(playerStat.getString("dreb"));
+                    textViews[5].setText(playerStat.getString("oreb"));
+                    textViews[6].setText(playerStat.getString("blk"));
+                    textViews[7].setText(playerStat.getString("stl"));
+                }else{
+                    Toast.makeText(context, "This player did not played any match this season", Toast.LENGTH_LONG).show();
+                }
             }else{
-                Toast.makeText(context, "This player did not played any match this season", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Something went wrong, try again", Toast.LENGTH_LONG).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();
+            Toast.makeText(context, "Something went wrong, try again", Toast.LENGTH_LONG).show();
         }
     }
 }
