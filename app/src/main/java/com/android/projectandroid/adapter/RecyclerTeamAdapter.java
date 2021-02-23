@@ -15,26 +15,16 @@ import com.android.projectandroid.model.Team;
 
 import java.util.List;
 
-// Create the basic adapter extending from RecyclerView.Adapter
-// Note that we specify the custom ViewHolder which gives us access to our views
 public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapter.ViewHolder> {
-
-
-
-    // Provide a direct reference to each of the views within a data item
-    // Used to cache the views within the item layout for fast access
+    /**
+     * View holder for our adapter
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // Your holder should contain a member variable
-        // for any view that will be set as you render a row
-
+        //Each UI component of each item is declare in the ViewHolder
         private ImageView logo, star;
         private TextView tvNameTeam;
 
-        // We also create a constructor that accepts the entire item row
-        // and does the view lookups to find each subview
         public ViewHolder(View itemView) {
-            // Stores the itemView in a public final member variable that can be used
-            // to access the context from any ViewHolder instance.
             super(itemView);
 
             logo = itemView.findViewById(R.id.ivLogoTeamFavorite);
@@ -43,27 +33,31 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
         }
     }
 
-    // Store a member variable for the contacts
-    private List<Team> mTeams;
+    // Store the list of teams to display
+    private List<Team> teams;
     private Context context;
 
-    // Pass in the contact array into the constructor
     public RecyclerTeamAdapter(List<Team> mTeams) {
-        this.mTeams = mTeams;
+        this.teams = mTeams;
     }
 
     public RecyclerTeamAdapter(List<Team> mTeams, Context context) {
-        this.mTeams = mTeams;
+        this.teams = mTeams;
         this.context = context;
     }
 
-    // Usually involves inflating a layout from XML and returning the holder
+    /**
+     * Create the ViewHolder and tell it which is the layout of each element
+     * @param parent the parent
+     * @param viewType
+     * @return the view holder
+     */
     @Override
     public RecyclerTeamAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        // Inflate the custom layout
+        // Inflate the card team layout
         View contactView = inflater.inflate(R.layout.card_team, parent, false);
 
         // Return a new holder instance
@@ -71,34 +65,45 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
         return viewHolder;
     }
 
-    // Involves populating data into the item through holder
+    /**
+     * Set the UI element of a given element
+     * @param holder the view holder of the element
+     * @param position the position of the element in the list of team
+     */
     @Override
     public void onBindViewHolder(RecyclerTeamAdapter.ViewHolder holder, int position) {
         // Get the data model based on position
-        Team team = mTeams.get(position);
+        Team team = teams.get(position);
 
-        // Set item views based on your views and data model
-
+        // Set the value of each item
+        //Empty or full star depending on if the team is favorite or not
         holder.star.setImageResource(team.isFavorites() ? R.drawable.ic_baseline_star_24 : R.drawable.ic_baseline_star_border_32);
-
+        holder.star.setColorFilter(R.color.black);
         addOnClickStarListener(holder.star, position);
 
+        //Team's logo
         holder.logo.setImageResource(team.getLogo());
-        holder.star.setColorFilter(R.color.black);
+        //Teams's name
         holder.tvNameTeam.setText(team.getName());
     }
 
     // Returns the total count of items in the list
     @Override
     public int getItemCount() {
-        return mTeams.size();
+        return teams.size();
     }
 
+    /**
+     * Add the listener on the star icon that changes the shape of the star and remove or add the team to the databse
+     * @param star, the icon to add the click listener
+     * @param position, the position of the team in the list
+     */
     private void addOnClickStarListener(ImageView star, int position){
         star.setOnClickListener(view -> {
             TeamDml db = new TeamDml(context);
-            Team actualTeam = mTeams.get(position);
+            Team actualTeam = teams.get(position);
 
+            //True if it was false, false if it was true
             actualTeam.flipFavorite();
             //Display full star + add the team to the DB
             if(actualTeam.isFavorites()){
