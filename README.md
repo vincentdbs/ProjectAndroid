@@ -6,7 +6,7 @@ Provide a simple user interface to display the list of all matches of the NBA at
 
 ## API used
 
-I used the free and public API : [balldontlie.io](www.balldontlie.io)  
+I used the free and public API : [balldontlie.io](https://www.balldontlie.io/)  
 
 ## Features
 
