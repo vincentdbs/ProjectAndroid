@@ -49,7 +49,7 @@ public class FavoriteTeamActivity extends AppCompatActivity {
         }
 
         // Lookup the recyclerview in activity layout
-        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvFavoriteTeam);
+        RecyclerView rvContacts = findViewById(R.id.rvFavoriteTeam);
 
         // Create adapter passing in the sample user data
         adapter = new RecyclerTeamAdapter(listOfTeam, getApplicationContext());

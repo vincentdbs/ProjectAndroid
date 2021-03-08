@@ -43,7 +43,7 @@ public class FragmentAllMatch extends Fragment {
         //Get the view
         calendar = getActivity().findViewById(R.id.date);
         adapter = new MatchListAdapter(getContext());
-        ListView list = (ListView) getActivity().findViewById(R.id.lvAllMatch);
+        ListView list = getActivity().findViewById(R.id.lvAllMatch);
         list.setAdapter(adapter);
 
         //Call asynctask

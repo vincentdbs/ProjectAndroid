@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         tv_date.setText(utils.getNowDate());
 
         setupViewPager(vpMatch);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.layoutFooter);
+        TabLayout tabLayout = findViewById(R.id.layoutFooter);
         tabLayout.setupWithViewPager(vpMatch);
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.blue));
         setupTabIcons(tabLayout);
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void actionBar(){
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.layoutNavbar);
+        Toolbar myToolbar = findViewById(R.id.layoutNavbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 

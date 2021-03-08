@@ -49,7 +49,7 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
     /**
      * Create the ViewHolder and tell it which is the layout of each element
      * @param parent the parent
-     * @param viewType
+     * @param viewType type
      * @return the view holder
      */
     @Override
@@ -61,8 +61,7 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
         View contactView = inflater.inflate(R.layout.card_team, parent, false);
 
         // Return a new holder instance
-        ViewHolder viewHolder = new ViewHolder(contactView);
-        return viewHolder;
+        return new ViewHolder(contactView);
     }
 
     /**
