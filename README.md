@@ -33,5 +33,5 @@ I have used the free and public API : [balldontlie.io](https://www.balldontlie.i
     - Tablayout
 - AyncTasks object to retrieve JSON response from the API
 - Service to trigger the notification
-- Persitance of the data 
+- Persistence of the data 
     - Favourite teams are stored in a SQLite database

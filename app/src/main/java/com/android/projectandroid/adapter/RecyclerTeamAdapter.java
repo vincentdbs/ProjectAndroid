@@ -94,7 +94,7 @@ public class RecyclerTeamAdapter extends RecyclerView.Adapter<RecyclerTeamAdapte
     }
 
     /**
-     * Add the listener on the star icon that changes the shape of the star and remove or add the team to the databse
+     * Add the listener on the star icon that changes the shape of the star and remove or add the team to the database
      * @param star, the icon to add the click listener
      * @param position, the position of the team in the list
      */

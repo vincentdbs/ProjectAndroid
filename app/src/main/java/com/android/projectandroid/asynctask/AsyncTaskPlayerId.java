@@ -30,7 +30,7 @@ public class AsyncTaskPlayerId extends AsyncTaskStringJson {
     }
 
     /**
-     * Do another http request to get player's stats or reset the textviews
+     * Do another http request to get player's stats or reset the text views
      * @param jsonObject the result of the research in the doInBackground method
      */
     @Override
@@ -48,7 +48,7 @@ public class AsyncTaskPlayerId extends AsyncTaskStringJson {
                     String teamAbrev = player.getJSONObject("team").getString("abbreviation");
                     String position = player.getString("position");
                     new AsyncTaskPlayerStats(context, textViews, ivTeam, firstName, lastName, team, teamAbrev, position).execute("https://www.balldontlie.io/api/v1/season_averages?player_ids[]=" + players.getJSONObject(jsonObjectIndex).getString("id"));
-                }else{ // reset all the textviews to '...' and display a toast
+                }else{ // reset all the text views to '...' and display a toast
                     utils.clearTextViews("...", textViews);
                     ivTeam.setImageResource(R.drawable.logo_nba);
                     Toast.makeText(context, "No user has been found", Toast.LENGTH_LONG).show();

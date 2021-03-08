@@ -31,7 +31,7 @@ public class AsyncTaskPlayerStats extends AsyncTaskStringJson {
     }
 
     /**
-     * Set the textviews of player stats activity with the content of the Json object
+     * Set the text views of player stats activity with the content of the Json object
      * @param jsonObject that contains the statistics of the player
      */
     @Override

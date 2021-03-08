@@ -66,7 +66,7 @@ public class TeamDml {
     }
 
     /**
-     * Get the list of team abreviation from the databse
+     * Get the list of team abreviation from the database
      * @return ArrayList<String> that contains all the favorite's team abreviation
      */
     public ArrayList<String> getAllFavTeamAbrev(){

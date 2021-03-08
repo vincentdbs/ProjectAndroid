@@ -24,7 +24,7 @@ public class AsyncTaskMatchNotification extends AsyncTaskStringJson {
     }
 
     /**
-     * Create an arraylist of match from the result of the API call
+     * Create an array list of match from the result of the API call
      * @param jsonObject, the JSONObject that contains all the wanted matches
      */
     @Override

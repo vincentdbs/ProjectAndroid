@@ -11,7 +11,7 @@ import static com.android.projectandroid.utlis.constants.LOG_TAG;
 
 public class AlarmReceiver extends BroadcastReceiver {
     /**
-     * Call asyntask to get the yesterday's list of match
+     * Call asynctask to get the yesterday's list of match
      * @param context the app context
      * @param intent
      */
