@@ -1,10 +1,10 @@
 package com.android.projectandroid.model;
 
 public class Team {
-    private int logo;
+    private final int logo;
     private String name, abreviation, city;
     private boolean favorites;
-    private int apiId;
+    private final int apiId;
 
     public Team(int logo, String name, String abreviation, String city, boolean favorites) {
         this.logo = logo;
@@ -12,15 +12,6 @@ public class Team {
         this.abreviation = abreviation;
         this.city = city;
         this.favorites = favorites;
-        this.apiId = 0;
-    }
-
-    public Team(int logo, String name, String abreviation, String city) {
-        this.logo = logo;
-        this.name = name;
-        this.abreviation = abreviation;
-        this.city = city;
-        this.favorites = false;
         this.apiId = 0;
     }
 
@@ -37,10 +28,6 @@ public class Team {
         return apiId;
     }
 
-    public void setApiId(int apiId) {
-        this.apiId = apiId;
-    }
-
     public void flipFavorite(){
         this.favorites = !this.favorites;
     }
@@ -49,16 +36,8 @@ public class Team {
         return favorites;
     }
 
-    public void setFavorites(boolean favorites) {
-        this.favorites = favorites;
-    }
-
     public int getLogo() {
         return logo;
-    }
-
-    public void setLogo(int logo) {
-        this.logo = logo;
     }
 
     public String getName() {
@@ -73,15 +52,7 @@ public class Team {
         return abreviation;
     }
 
-    public void setAbreviation(String abreviation) {
-        this.abreviation = abreviation;
-    }
-
     public String getCity() {
         return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 }
