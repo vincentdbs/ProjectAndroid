@@ -34,11 +34,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Get the views
         TextView tv_date = findViewById(R.id.date);
         ViewPager vpMatch = findViewById(R.id.viewPagerMatch);
 
+        //Init the date
         tv_date.setText(utils.getNowDate());
 
+        // Set up the the tab layout with the two fragment
         setupViewPager(vpMatch);
         TabLayout tabLayout = findViewById(R.id.layoutFooter);
         tabLayout.setupWithViewPager(vpMatch);
@@ -46,35 +49,46 @@ public class MainActivity extends AppCompatActivity {
         setupTabIcons(tabLayout);
         tabSelectedListener(tabLayout);
 
+        //Fill the action bar
         actionBar();
 
         setUpAlarm();
     }
 
+    /**
+     * Set the icon of the tab
+     * @param tabLayout
+     */
     private void setupTabIcons(TabLayout tabLayout) {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_sports_basketball_32);
         tabLayout.getTabAt(0).getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.blue));
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_star_border_32);
     }
 
+    /**
+     * Listener on the tablayout
+     * @param tabLayout the tablayout to add the listner
+     */
     private void tabSelectedListener(TabLayout tabLayout){
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()){
                     case 0:
+                        //Set the color to blue when selected
                         tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.blue));
                         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.blue));
                         break;
                     case 1:
+                        //Set the color to red when selected
                         tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.red));
                         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(getApplication(), R.color.red));
                 }
-
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+                //Set the color to black when not used
                 tab.getIcon().setTint(ContextCompat.getColor(getApplication(), R.color.black));
             }
 
@@ -85,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Add the fragment to the good tab
+     * @param viewPager the view pager that contains the fragment
+     */
     private void setupViewPager(ViewPager viewPager) {
         SectionMatchAdapter adapter = new SectionMatchAdapter(getSupportFragmentManager());
         adapter.addFragment(new FragmentAllMatch(), "one");
@@ -92,13 +110,20 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    /**
+     * Init the Actionbar
+     */
     private void actionBar(){
         Toolbar myToolbar = findViewById(R.id.layoutNavbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
     }
 
+    /**
+     * Handle the action bar menu
+     * @param menu the menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -106,6 +131,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Handle the selected menu item in action bar
+     * @param item the item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final int menuItemPlayerStat = R.id.menuItemPlayerStat;
