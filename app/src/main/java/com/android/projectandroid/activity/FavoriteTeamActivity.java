@@ -90,14 +90,15 @@ public class FavoriteTeamActivity extends AppCompatActivity {
     public void btnResetFavOnClickListener(){
         btnResetFav.setOnClickListener(view -> {
             TeamDml db = new TeamDml(getApplicationContext());
+            //Clear all the database
             db.deleteAllTableContent();
+            //Clear the list in the adapter
             listOfTeam.clear();
             if(!switchFavorite.isChecked()){
                 for (Team team : MAP_LOGO_TEAM.values()) {
                     listOfTeam.add(new Team(team.getLogo(), team.getName(), team.getAbreviation(), team.getCity(), false));
                 }
             }
-
             adapter.notifyDataSetChanged();
         });
     }

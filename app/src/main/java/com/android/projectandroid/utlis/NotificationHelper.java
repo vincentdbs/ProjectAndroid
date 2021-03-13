@@ -31,6 +31,7 @@ public class NotificationHelper {
     public void createNotification() {
         Log.i(LOG_TAG, "create Notification");
 
+        //Create the intent
         Intent intent = new Intent(mContext , MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -38,10 +39,14 @@ public class NotificationHelper {
                 0 , intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
-
+        //Create the notification builder
+        //Add the elements in the notification
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext, NOTIFICATION_CHANNEL_ID);
+
+            //Logo
         mBuilder.setSmallIcon(R.drawable.ic_baseline_sports_basketball_32);
 
+            //Content
         StringBuilder contentNotification = new StringBuilder();
         for (Match match: listOfMatch) {
             contentNotification.append(match.getNameTeamDom()).append(" : ").append(match.getScoreTeamDom()).append(" - ").append(match.getScoreTeamExt()).append(" : ").append(match.getNameTeamExt()).append(" | ");
@@ -58,6 +63,7 @@ public class NotificationHelper {
 
         NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
+        //Send notification
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O)
         {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;

@@ -40,6 +40,7 @@ public class FragmentFavoritesMatch extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //Get the views in the AppBar + get the views if the fragment
         calendar = getActivity().findViewById(R.id.date);
         ListView list = getActivity().findViewById(R.id.lvFavoritesMatch);
         adapter = new MatchListAdapter(getContext());

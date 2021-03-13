@@ -19,9 +19,11 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.i(LOG_TAG, "broadcast receiver");
 
+        //Build the query for the HTTP request
         String paramDate = utils.getYesterdayDate();
         String param = "start_date=" + paramDate+ "&end_date=" + paramDate + utils.getParamArrayOfApiTeamId(context);
 
+        //Do the async task
         new AsyncTaskMatchNotification(context).execute("https://www.balldontlie.io/api/v1/games?" + param);
     }
 }
