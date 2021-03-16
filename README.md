@@ -16,6 +16,7 @@ I have used the free and public API : [balldontlie.io](https://www.balldontlie.i
 - Choose a player and display his statistics  
 - Follow or unfollow a team  
 - Receive a notification at 8:30AM that display the results of the night  
+- test
 
 ## Criteria
 
